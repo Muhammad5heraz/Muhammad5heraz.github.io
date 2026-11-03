@@ -52,7 +52,7 @@ svg{display:block}
   box-shadow:0 0 0 1px rgba(255,255,255,.07), 0 30px 80px -34px rgba(243,201,139,.28)}
 .pimg{position:absolute;inset:0}
 .pimg img{width:100%;height:100%;object-fit:cover;object-position:50% 100%;filter:contrast(1.04)}
-.pimg .avatar{display:none}
+.pimg .hero{display:none}
 .veil{position:absolute;inset:0;z-index:1;pointer-events:none;
   background:radial-gradient(circle at 56% 66%, transparent var(--r), #06080B calc(var(--r) + 34%));animation:lightOn 3s cubic-bezier(.25,.1,.2,1) .15s both}
 @keyframes lightOn{from{--r:0%}to{--r:82%}}
@@ -98,19 +98,17 @@ svg{display:block}
 
 /* ---------- Phones: everything on one screen ---------- */
 @media (max-width:860px){
-  .wrap{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);gap:14px;padding:max(16px,env(safe-area-inset-top)) 14px max(16px,env(safe-area-inset-bottom));min-height:540px}
-  .portrait{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:16px;align-content:center;align-items:center;
-    padding:16px;border-radius:26px;background:linear-gradient(145deg,rgba(243,201,139,.14),rgba(18,24,32,.9) 70%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
-  .veil,.follow,.spk{display:none}
-  .pimg{position:relative;inset:auto;grid-row:1 / span 2;width:100px;height:100px;border-radius:50%;overflow:hidden;
-    box-shadow:0 0 0 2px rgba(243,201,139,.55), 0 0 28px -4px rgba(243,201,139,.5);background:#06080B}
+  .wrap{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);gap:12px;padding:max(14px,env(safe-area-inset-top)) 14px max(14px,env(safe-area-inset-bottom));min-height:540px}
+  .portrait{height:clamp(210px,35dvh,340px);border-radius:26px}
+  .follow,.spk{display:none}
   .pimg .full{display:none}
-  .pimg .avatar{display:block;object-position:50% 50%}
-  .pcopy{position:static;align-self:end}
-  .pcopy h1{font-size:clamp(2.1rem,9.5vw,2.7rem);line-height:.98}
-  .handle{margin-top:6px;font-size:.95rem}
-  .chip{position:static;align-self:start;margin-top:8px;padding:0;background:none;border:0;backdrop-filter:none;-webkit-backdrop-filter:none;font-size:.85rem;color:var(--muted)}
-  .grid{grid-template-rows:repeat(5,minmax(0,88px));gap:12px;height:100%;align-content:center;margin:auto 0}
+  .pimg .hero{display:block;object-position:50% 40%}
+  .veil{background:radial-gradient(circle at 52% 55%, transparent var(--r), #06080B calc(var(--r) + 34%))}
+  .pcopy{left:20px;right:auto;top:16px}
+  .pcopy h1{font-size:clamp(2rem,9vw,2.6rem);line-height:.96}
+  .handle{margin-top:8px;font-size:.92rem}
+  .chip{left:14px;bottom:14px;padding:7px 12px;font-size:.84rem}
+  .grid{grid-template-rows:repeat(5,minmax(0,84px));gap:11px;height:100%;align-content:center;margin:auto 0}
   .tile{padding:0 12px;gap:11px;border-radius:18px}
   .glyph{flex-basis:40px;height:40px;border-radius:12px}
   .glyph svg{width:22px;height:22px}
@@ -119,9 +117,10 @@ svg{display:block}
   .go{display:none}
 }
 @media (max-width:860px) and (max-height:700px){
-  .pimg{width:72px;height:72px}
-  .pcopy h1{font-size:clamp(1.8rem,8.5vw,2.3rem)}
-  .portrait{padding:12px}
+  .portrait{height:clamp(190px,32dvh,240px)}
+  .pimg .hero{object-position:50% 24%}
+  .handle{font-size:.82rem}
+  .pcopy h1{font-size:clamp(1.7rem,8vw,2.1rem)}
   .glyph{flex-basis:36px;height:36px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -145,7 +144,7 @@ svg{display:block}
 <div class="wrap">
 
   <section class="portrait rise" aria-label="Muhammad Sheraz">
-    <div class="pimg"><img class="avatar" src="assets/avatar.jpg" width="256" height="256" alt=""><img class="full" src="assets/portrait.jpg" width="702" height="1200" alt="Black and white portrait of Muhammad Sheraz, half of his face lit from the right, the rest in shadow" fetchpriority="high"></div>
+    <div class="pimg"><img class="hero" src="assets/hero.jpg" width="720" height="600" alt=""><img class="full" src="assets/portrait.jpg" width="702" height="1200" alt="Black and white portrait of Muhammad Sheraz, half of his face lit from the right, the rest in shadow" fetchpriority="high"></div>
     <div class="veil" aria-hidden="true"></div>
     <div class="follow" aria-hidden="true"></div>
     <i class="spk" style="left:62%;top:48%;--s:14px;--d:5.4s;--t:2.6s"></i>

@@ -7,7 +7,7 @@ ORCID, X, Facebook and email in one place.
 
 ## What is in it
 - `index.html` — the whole page (HTML, CSS and JavaScript inline; no build step, no dependencies)
-- `assets/portrait.jpg`, `assets/avatar.jpg` — portrait photo and its square face crop for phones
+- `assets/portrait.jpg`, `assets/hero.jpg` — portrait photo and its wider face crop for phones
 - Brand icons are the official glyphs from [Simple Icons](https://simpleicons.org) (CC0 data), drawn inline as SVG
 - Fonts (Instrument Serif, DM Sans, Noto Nastaliq Urdu) load from Google Fonts
 
