@@ -3,7 +3,7 @@
 Live at **https://muhammad5heraz.github.io**
 
 A single-page link hub: Instagram, YouTube, TikTok, WhatsApp, LinkedIn, GitHub,
-ORCID, X, Facebook and email in one place.
+ORCID, X, Facebook, Reddit, Snapchat and email in one place.
 
 ## What is in it
 - `index.html` — the whole page (HTML, CSS and JavaScript inline; no build step, no dependencies)
