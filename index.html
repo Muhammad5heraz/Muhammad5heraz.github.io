@@ -4,242 +4,189 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#0B1016">
+<meta name="theme-color" content="#050608">
 <title>Muhammad Sheraz</title>
 <meta name="description" content="Muhammad Sheraz. Instagram, YouTube, TikTok, WhatsApp, LinkedIn, GitHub, ORCID and more, all in one place.">
 <meta property="og:title" content="Muhammad Sheraz">
 <meta property="og:description" content="Every link in one place.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230B1016'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23F3C98B' stroke-width='2'/%3E%3Cpath d='M16 7a9 9 0 0 0 0 18z' fill='%23F3C98B'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<meta property="og:image" content="assets/portrait.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23050608'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23F3C98B' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
-@property --r{syntax:"<percentage>";inherits:false;initial-value:0%}
-:root{
-  color-scheme:dark;
-  --ink:#0B1016; --card:#121820; --bone:#EEEAE3; --muted:#98A0AB; --dim:#66707C;
-  --light:#F3C98B; --light-hot:#FFE4B8;
-  --serif:"Instrument Serif", "Iowan Old Style", Georgia, serif;
-  --sans:"DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;background:var(--ink);height:100%}
-body{height:100%;min-height:100dvh;color:var(--bone);font:16px/1.5 var(--sans);background:var(--ink);overflow-x:hidden;position:relative}
-/* slow, soft aurora behind everything */
-.aurora{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none}
-.aurora i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;will-change:transform}
-.aurora i:nth-child(1){width:62vmax;height:62vmax;left:-20vmax;top:-26vmax;background:radial-gradient(circle,rgba(243,201,139,.30),transparent 65%);animation:float1 38s ease-in-out infinite alternate}
-.aurora i:nth-child(2){width:60vmax;height:60vmax;right:-24vmax;bottom:-26vmax;background:radial-gradient(circle,rgba(86,140,170,.34),transparent 65%);animation:float2 46s ease-in-out infinite alternate}
-.aurora i:nth-child(3){width:40vmax;height:40vmax;left:30%;top:40%;background:radial-gradient(circle,rgba(120,110,170,.18),transparent 65%);animation:float1 52s ease-in-out infinite alternate-reverse}
-@keyframes float1{to{transform:translate(14vmax,10vmax)}}
-@keyframes float2{to{transform:translate(-12vmax,-9vmax)}}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.05;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-#sparkle{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
-a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
-a:focus-visible{outline:2px solid var(--light);outline-offset:3px}
+@property --bc{syntax:'<color>';inherits:true;initial-value:#E1306C}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:#050608;color:#EEEAE3;font:16px/1.4 'DM Sans',system-ui,sans-serif;overflow:hidden;overscroll-behavior:none}
 svg{display:block}
-.defs{position:absolute;width:0;height:0}
-
-/* ---------- One-screen layout ---------- */
-.wrap{position:relative;z-index:2;height:100dvh;min-height:560px;max-width:1040px;margin:0 auto;padding:max(26px,env(safe-area-inset-top)) 24px max(26px,env(safe-area-inset-bottom));
-  display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:24px;align-items:stretch}
-.rise{opacity:0;transform:translateY(12px);animation:rise 1s ease forwards;animation-delay:calc(var(--i,0) * 70ms + 250ms)}
-@keyframes rise{to{opacity:1;transform:none}}
-
-/* ---------- Portrait (desktop: tall card) ---------- */
-.portrait{--mx:60%;--my:60%;position:relative;border-radius:28px;overflow:hidden;background:#06080B;isolation:isolate;min-height:0;
-  box-shadow:0 0 0 1px rgba(255,255,255,.07), 0 30px 80px -34px rgba(243,201,139,.28)}
-.pimg{position:absolute;inset:0}
-.pimg img{width:100%;height:100%;object-fit:cover;object-position:50% 100%;filter:contrast(1.04)}
-.pimg .hero{display:none}
-.veil{position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:radial-gradient(circle at 56% 66%, transparent var(--r), #06080B calc(var(--r) + 34%));animation:lightOn 3s cubic-bezier(.25,.1,.2,1) .15s both}
-@keyframes lightOn{from{--r:0%}to{--r:82%}}
-.follow{position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:soft-light;opacity:.8;
-  background:radial-gradient(260px circle at var(--mx) var(--my), rgba(255,214,150,.5), transparent 70%)}
-.spk{position:absolute;z-index:3;width:var(--s,12px);height:var(--s,12px);pointer-events:none;background:var(--light-hot);
-  clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);filter:drop-shadow(0 0 6px rgba(255,214,150,.8));
-  opacity:0;animation:twinkle var(--d,5s) ease-in-out var(--t,0s) infinite}
-@keyframes twinkle{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:.9;transform:scale(1) rotate(45deg)}}
-.pcopy{position:absolute;z-index:2;left:30px;right:30px;top:30px}
-.pcopy h1{font:400 clamp(2.8rem,5vw,3.9rem)/.95 var(--serif);letter-spacing:-.015em;color:var(--bone)}
-.handle{margin-top:12px;color:var(--muted);font-size:1rem}
-.chip{position:absolute;z-index:2;left:22px;bottom:22px;display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border-radius:999px;
-  background:rgba(8,10,13,.6);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:.92rem;color:#D8D4CC}
-.chip i{width:8px;height:8px;border-radius:50%;background:var(--light);animation:pulse 3.2s ease-out infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(243,201,139,0)}100%{box-shadow:0 0 0 0 rgba(243,201,139,0)}}
-.chip b{font-weight:600;color:var(--bone);font-variant-numeric:tabular-nums}
-
-/* ---------- Tiles: filled, two columns, all ten visible ---------- */
-.links{min-width:0;min-height:0;display:flex;flex-direction:column;justify-content:center}
-.grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(6,minmax(0,84px));gap:11px;align-content:center;min-height:0}
-.tile{--x:50%;--y:50%;--b:#F3C98B;position:relative;display:flex;align-items:center;gap:14px;padding:0 16px;border-radius:20px;overflow:hidden;min-width:0;
-  background:radial-gradient(240px circle at var(--x) var(--y), color-mix(in srgb, var(--b) 22%, transparent), transparent 70%),
-             linear-gradient(145deg, color-mix(in srgb, var(--b) 20%, var(--card)), color-mix(in srgb, var(--b) 9%, var(--card)));
-  box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--b) 24%, transparent), 0 14px 30px -20px var(--b);
-  transition:transform .3s ease, box-shadow .3s ease}
-.tile:hover,.tile:focus-visible{transform:translateY(-2px);box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--b) 55%, transparent), 0 18px 36px -16px var(--b)}
-.tile:active{transform:scale(.98)}
-.shine{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:inherit}
-.shine::before{content:"";position:absolute;top:-50%;bottom:-50%;width:30%;left:-50%;transform:skewX(-22deg);
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.09),transparent);animation:glint 9s ease-in-out calc(var(--i,0) * 1.1s + 2s) infinite}
-@keyframes glint{0%{left:-50%}30%,100%{left:150%}}
-.glyph{position:relative;flex:0 0 46px;height:46px;border-radius:14px;display:grid;place-items:center;background:rgba(6,8,11,.72);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.07), 0 0 22px -6px color-mix(in srgb, var(--b) 60%, transparent);animation:halo 6s ease-in-out calc(var(--i,0) * .5s) infinite}
-@keyframes halo{50%{box-shadow:inset 0 0 0 1px rgba(255,255,255,.07), 0 0 26px -2px color-mix(in srgb, var(--b) 80%, transparent)}}
-.glyph svg{width:25px;height:25px}
-.meta{min-width:0;display:flex;flex-direction:column}
-.meta b{font-weight:600;font-size:1.05rem;line-height:1.25}
-.meta small{color:var(--muted);font-size:.86rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.go{margin-left:auto;flex:none;color:var(--dim);transition:transform .3s ease,color .3s ease}
-.go svg{width:16px;height:16px}
-.tile:hover .go{color:var(--bone);transform:translate(2px,-2px)}
-
-/* ---------- Phones: everything on one screen ---------- */
-@media (max-width:860px){
-  .wrap{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);gap:12px;padding:max(14px,env(safe-area-inset-top)) 14px max(14px,env(safe-area-inset-bottom));min-height:540px}
-  .portrait{height:clamp(210px,35dvh,340px);border-radius:26px}
-  .follow,.spk{display:none}
-  .pimg .full{display:none}
-  .pimg .hero{display:block;object-position:50% 40%}
-  .veil{background:radial-gradient(circle at 52% 55%, transparent var(--r), #06080B calc(var(--r) + 34%))}
-  .pcopy{left:20px;right:auto;top:16px}
-  .pcopy h1{font-size:clamp(2rem,9vw,2.6rem);line-height:.96}
-  .handle{margin-top:8px;font-size:.92rem}
-  .chip{left:14px;bottom:14px;padding:7px 12px;font-size:.84rem}
-  .grid{grid-template-rows:repeat(6,minmax(0,76px));gap:10px;height:100%;align-content:center;margin:auto 0}
-  .tile{padding:0 12px;gap:11px;border-radius:18px}
-  .glyph{flex-basis:40px;height:40px;border-radius:12px}
-  .glyph svg{width:22px;height:22px}
-  .meta small{display:none}
-  .meta b{font-size:1rem}
-  .go{display:none}
-}
-@media (max-width:860px) and (max-height:700px){
-  .portrait{height:clamp(190px,32dvh,240px)}
-  .pimg .hero{object-position:50% 24%}
-  .handle{font-size:.82rem}
-  .pcopy h1{font-size:clamp(1.7rem,8vw,2.1rem)}
-  .glyph{flex-basis:36px;height:36px}
+a{color:inherit;text-decoration:none}
+.stage{position:fixed;inset:0;overflow:hidden}
+/* photo */
+.bg{position:absolute;left:-10vw;top:-24dvh;width:165vw;height:128dvh;object-fit:cover;object-position:50% 40%;
+  animation:bgIn 2.2s cubic-bezier(.2,.7,.2,1) both,breathe 14s ease-in-out 2.2s infinite alternate;will-change:transform}
+@keyframes bgIn{from{opacity:0;transform:scale(1.12)}to{opacity:1;transform:scale(1)}}
+@keyframes breathe{from{transform:scale(1)}to{transform:scale(1.035) translate(-.4%,.3%)}}
+.vig{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,#050608 0%,rgba(5,6,8,.82) 34%,rgba(5,6,8,0) 64%),
+  linear-gradient(180deg,rgba(5,6,8,.92) 0%,rgba(5,6,8,0) 26%,rgba(5,6,8,0) 80%,rgba(5,6,8,.95) 100%)}
+.beam{position:absolute;left:0;top:0;width:min(80vw,900px);height:150px;pointer-events:none;mix-blend-mode:screen;opacity:0;
+  background:radial-gradient(ellipse at 0% 50%,color-mix(in srgb,var(--bc) 46%,transparent),transparent 66%);filter:blur(12px);
+  transition:transform .8s cubic-bezier(.2,.8,.2,1),--bc .8s ease,opacity .8s;transform:translate(120px,0) rotate(-6deg);transform-origin:0 50%}
+canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+/* layout */
+.wrap{position:absolute;inset:0;display:grid;grid-template-rows:auto auto auto minmax(0,1fr) auto;padding:max(14px,env(safe-area-inset-top)) 18px max(14px,env(safe-area-inset-bottom));max-width:100%}
+.top{display:flex;justify-content:flex-end;padding:8px 6px 0}
+.moon{display:flex;gap:8px;align-items:center;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#BFB9AD;animation:fade 1.4s .9s both}
+.moon i{width:8px;height:8px;border-radius:50%;background:#F3C98B;box-shadow:0 0 12px #F3C98B;animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+h1{font:400 clamp(34px,min(13.4vw,8.4dvh),56px)/.95 'Instrument Serif',serif;letter-spacing:-.01em;padding:clamp(6px,2dvh,18px) 6px 0}
+h1 span{display:block;overflow:hidden;padding-bottom:.08em}
+h1 span i{display:block;font-style:normal;animation:rise 1.1s cubic-bezier(.2,.8,.2,1) both}
+h1 span:nth-child(1) i{animation-delay:.35s}h1 span:nth-child(2) i{animation-delay:.5s}
+@keyframes rise{from{transform:translateY(105%);filter:blur(6px)}to{transform:none;filter:none}}
+.sub{padding:6px 8px clamp(4px,1.6dvh,14px);color:#8F939B;font-size:14px;animation:fade 1.2s .8s both}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.list{position:relative;display:flex;flex-direction:column;justify-content:flex-start;min-height:0;align-self:stretch;gap:2px;width:min(230px,62vw)}
+.row{position:relative;flex:1 1 0;max-height:46px;min-height:0;display:flex;align-items:center;gap:12px;padding:0 12px;border-radius:14px;color:#A9ADB4;opacity:0;
+  animation:rowIn .8s cubic-bezier(.2,.8,.2,1) calc(.9s + var(--i)*.055s) forwards;transition:color .4s,background .5s,box-shadow .5s;outline:none}
+@keyframes rowIn{from{opacity:0;transform:translateX(-18px)}to{opacity:.8;transform:none}}
+.row .g{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:rgba(255,255,255,.04);transition:background .4s,box-shadow .5s,transform .5s cubic-bezier(.2,.8,.2,1);flex:none}
+.row .g svg{width:20px;height:20px}
+.row b{font-weight:500;font-size:clamp(14px,2.1dvh,16px);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.row.lit{opacity:1!important;color:#fff;background:linear-gradient(90deg,color-mix(in srgb,var(--b) 30%,transparent),transparent 92%);box-shadow:inset 2px 0 0 var(--b)}
+.row.lit .g{background:#0A0C0F;box-shadow:0 0 22px -2px var(--b);transform:scale(1.08)}
+.row.lit b{transform:translateX(4px)}
+.hint{text-align:center;padding-top:6px;font:400 11px 'DM Sans';letter-spacing:.18em;text-transform:uppercase;color:#6E737B;animation:fade 1.4s 2s both}
+/* flood on tap */
+.flood{position:fixed;width:20px;height:20px;border-radius:50%;margin:-10px 0 0 -10px;background:var(--bc);pointer-events:none;z-index:9;transform:scale(0);transition:transform .55s cubic-bezier(.6,0,.2,1)}
+.flood.go{transform:scale(160)}
+/* desktop */
+.ghost,.clock2,.frame{display:none}
+@media (min-aspect-ratio:1/1){
+ .bg{left:calc(64vw - 52dvh);right:auto;top:-86dvh;width:108.2dvh;height:185dvh;object-fit:fill}
+ .vig{background:linear-gradient(90deg,#050608 0%,#050608 24%,rgba(5,6,8,.6) 42%,rgba(5,6,8,0) 66%),linear-gradient(180deg,rgba(5,6,8,.65),rgba(5,6,8,0) 22%,rgba(5,6,8,0) 76%,rgba(5,6,8,.9)),linear-gradient(270deg,rgba(5,6,8,.85),rgba(5,6,8,0) 14%)}
+ .wrap{position:absolute;right:auto;width:min(560px,42vw);padding-left:max(36px,5.5vw);padding-right:20px;padding-top:max(22px,3.5dvh);padding-bottom:max(22px,3.5dvh)}
+ .top{height:0;padding:0;overflow:hidden;visibility:hidden}
+ h1{font-size:clamp(44px,min(7vw,12dvh),104px);padding-left:6px}
+ .sub{font-size:clamp(14px,1.9dvh,17px);padding-bottom:clamp(8px,3dvh,28px)}
+ .list{width:min(300px,100%)}
+ .row{max-height:54px}
+ .row .g{width:clamp(28px,4.4dvh,36px);height:clamp(28px,4.4dvh,36px)}
+ .row .g svg{width:60%;height:60%}
+ .row b{font-size:clamp(15px,2.5dvh,19px)}
+ .hint{text-align:left;padding-left:8px}
+ .ghost{display:block;position:absolute;left:21vw;bottom:-3dvh;font:400 clamp(160px,27vw,480px)/.8 'Instrument Serif',serif;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1px rgba(243,201,139,.22);pointer-events:none;white-space:nowrap;animation:fade 3s 1.2s both}
+ .frame{display:block;position:absolute;right:clamp(28px,3.6vw,64px);top:clamp(22px,3.5dvh,40px);bottom:clamp(22px,3.5dvh,40px);width:1px;background:linear-gradient(180deg,transparent,rgba(243,201,139,.35) 20%,rgba(243,201,139,.35) 80%,transparent);animation:fade 2s 1.4s both;pointer-events:none}
+ .clock2{display:block;position:absolute;right:clamp(48px,5.6vw,96px);bottom:clamp(26px,5dvh,56px);text-align:right;animation:fade 2s 1.6s both}
+ .clock2 .t{font:400 clamp(44px,9dvh,92px)/1 'Instrument Serif',serif;letter-spacing:-.02em;color:#F1ECE2;text-shadow:0 0 40px rgba(243,201,139,.25)}
+ .clock2 .t small{font:500 clamp(12px,1.8dvh,16px) 'DM Sans';letter-spacing:.2em;color:#F3C98B;margin-left:8px;vertical-align:top;position:relative;top:.6em}
+ .clock2 .p{margin-top:8px;font-size:clamp(10.5px,1.5dvh,12.5px);letter-spacing:.22em;text-transform:uppercase;color:#8F939B}
+ .clock2 .p i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#F3C98B;box-shadow:0 0 12px #F3C98B;margin-right:9px;animation:pulse 3s ease-in-out infinite}
 }
 @media (prefers-reduced-motion:reduce){
-  .rise{opacity:1;transform:none;animation:none}
-  .veil{animation:none;--r:82%}
-  .aurora i,.shine::before,.glyph,.spk,.chip i{animation:none}
-  .tile,.go{transition:none}
-  #sparkle{display:none}
+ *{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+ canvas{display:none}
 }
 </style>
 </head>
 <body>
-<svg class="defs" aria-hidden="true" focusable="false"><defs>
-  <linearGradient id="igGrad" x1="0" y1="1" x2="1" y2="0">
-    <stop offset="0" stop-color="#FEDA75"/><stop offset=".25" stop-color="#FA7E1E"/><stop offset=".5" stop-color="#D62976"/><stop offset=".75" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/>
-  </linearGradient>
-</defs></svg>
-<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
-<canvas id="sparkle" aria-hidden="true"></canvas>
-
-<div class="wrap">
-
-  <section class="portrait rise" aria-label="Muhammad Sheraz">
-    <div class="pimg"><img class="hero" src="assets/hero.jpg" width="720" height="600" alt=""><img class="full" src="assets/portrait.jpg" width="702" height="1200" alt="Black and white portrait of Muhammad Sheraz, half of his face lit from the right, the rest in shadow" fetchpriority="high"></div>
-    <div class="veil" aria-hidden="true"></div>
-    <div class="follow" aria-hidden="true"></div>
-    <i class="spk" style="left:62%;top:48%;--s:14px;--d:5.4s;--t:2.6s"></i>
-    <i class="spk" style="left:78%;top:57%;--s:9px;--d:4.8s;--t:3.4s"></i>
-    <i class="spk" style="left:44%;top:62%;--s:11px;--d:6s;--t:4s"></i>
-    <i class="spk" style="left:84%;top:32%;--s:12px;--d:5.2s;--t:3.8s"></i>
-    <div class="pcopy">
-      <h1>Muhammad<br>Sheraz</h1>
-      <p class="handle">@muhammad5heraz</p>
-    </div>
-    <div class="chip"><i aria-hidden="true"></i>Faisalabad <b id="clock">--:--</b></div>
-  </section>
-
-  <main class="links">
-    <div class="grid">
-<a class="tile  rise" style="--b:#E1306C;--i:0" href="https://www.instagram.com/muhammad5heraz" target="_blank" rel="noopener"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="url(#igGrad)" d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><span class="meta"><b>Instagram</b><small>@muhammad5heraz</small></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span><span class="shine" aria-hidden="true"></span></a>
-<a class="tile  rise" style="--b:#FF2B2B;--i:1" href="https://youtube.com/@muhammad5heraz" target="_blank" rel="noopener"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span><span class="meta"><b>YouTube</b><small>@muhammad5heraz</small></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span><span class="shine" aria-hidden="true"></span></a>
-<a class="tile  rise" style="--b:#25F4EE;--i:2" href="https://www.tiktok.com/@muhammad5heraz" target="_blank" rel="noopener"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#25F4EE" transform="translate(-.7 -.7)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/><path fill="#FE2C55" transform="translate(.7 .7)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/><path fill="#fff" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span><span class="meta"><b>TikTok</b><small>@muhammad5heraz</small></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span><span class="shine" aria-hidden="true"></span></a>
-<a class="tile  rise" style="--b:#25D366;--i:3" href="https://wa.me/muhammad5heraz" target="_blank" rel="noopener"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span><span class="meta"><b>WhatsApp</b><small>@muhammad5heraz</small></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span><span class="shine" aria-hidden="true"></span></a>
-<a class="tile  rise" style="--b:#0A66C2;--i:4" href="https://www.linkedin.com/in/muhammad-sheraz-9138302b9" target="_blank" rel="noopener"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span><span class="meta"><b>LinkedIn</b><small>Muhammad Sheraz</small></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span><span class="shine" aria-hidden="true"></span></a>
-<a class="tile  rise" style="--b:#9AA0AA;--i:5" href="https://github.com/Muhammad5heraz" target="_blank" rel="noopener"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span><span class="meta"><b>GitHub</b><small>Muhammad5heraz</small></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span><span class="shine" aria-hidden="true"></span></a>
-<a class="tile  rise" style="--b:#A6CE39;--i:6" href="https://orcid.org/0009-0007-3877-2232" target="_blank" rel="noopener"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#A6CE39" d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/></svg></span><span class="meta"><b>ORCID</b><small>0009-0007-3877-2232</small></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span><span class="shine" aria-hidden="true"></span></a>
-<a class="tile  rise" style="--b:#9AA0AA;--i:7" href="https://twitter.com/AnshSheraz" target="_blank" rel="noopener"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span><span class="meta"><b>X</b><small>@AnshSheraz</small></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span><span class="shine" aria-hidden="true"></span></a>
-<a class="tile  rise" style="--b:#0866FF;--i:8" href="https://www.facebook.com/anshshoukat/" target="_blank" rel="noopener"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0866FF" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></span><span class="meta"><b>Facebook</b><small>anshshoukat</small></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span><span class="shine" aria-hidden="true"></span></a>
-<a class="tile  rise" style="--b:#FF4500;--i:9" href="https://www.reddit.com/user/muhammad5heraz" target="_blank" rel="noopener"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FF4500" d="M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.314 3.515 8.485l-2.286 2.286C.775 23.225 1.097 24 1.738 24H12c6.627 0 12-5.373 12-12S18.627 0 12 0Zm4.388 3.199c1.104 0 1.999.895 1.999 1.999 0 1.105-.895 2-1.999 2-.946 0-1.739-.657-1.947-1.539v.002c-1.147.162-2.032 1.15-2.032 2.341v.007c1.776.067 3.4.567 4.686 1.363.473-.363 1.064-.58 1.707-.58 1.547 0 2.802 1.254 2.802 2.802 0 1.117-.655 2.081-1.601 2.531-.088 3.256-3.637 5.876-7.997 5.876-4.361 0-7.905-2.617-7.998-5.87-.954-.447-1.614-1.415-1.614-2.538 0-1.548 1.255-2.802 2.803-2.802.645 0 1.239.218 1.712.585 1.275-.79 2.881-1.291 4.64-1.365v-.01c0-1.663 1.263-3.034 2.88-3.207.188-.911.993-1.595 1.959-1.595Zm-8.085 8.376c-.784 0-1.459.78-1.506 1.797-.047 1.016.64 1.429 1.426 1.429.786 0 1.371-.369 1.418-1.385.047-1.017-.553-1.841-1.338-1.841Zm7.406 0c-.786 0-1.385.824-1.338 1.841.047 1.017.634 1.385 1.418 1.385.785 0 1.473-.413 1.426-1.429-.046-1.017-.721-1.797-1.506-1.797Zm-3.703 4.013c-.974 0-1.907.048-2.77.135-.147.015-.241.168-.183.305.483 1.154 1.622 1.964 2.953 1.964 1.33 0 2.47-.81 2.953-1.964.057-.137-.037-.29-.184-.305-.863-.087-1.795-.135-2.769-.135Z"/></svg></span><span class="meta"><b>Reddit</b><small>u/muhammad5heraz</small></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span><span class="shine" aria-hidden="true"></span></a>
-<a class="tile  rise" style="--b:#FFFC00;--i:10" href="https://www.snapchat.com/add/anshshoukat21" target="_blank" rel="noopener"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFC00" d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12 1.033-.301.165-.088.344-.104.464-.104.182 0 .359.029.509.09.45.149.734.479.734.838.015.449-.39.839-1.213 1.168-.089.029-.209.075-.344.119-.45.135-1.139.36-1.333.81-.09.224-.061.524.12.868l.015.015c.06.136 1.526 3.475 4.791 4.014.255.044.435.27.42.509 0 .075-.015.149-.045.225-.24.569-1.273.988-3.146 1.271-.059.091-.12.375-.164.57-.029.179-.074.36-.134.553-.076.271-.27.405-.555.405h-.03c-.135 0-.313-.031-.538-.074-.36-.075-.765-.135-1.273-.135-.3 0-.599.015-.913.074-.6.104-1.123.464-1.723.884-.853.599-1.826 1.288-3.294 1.288-.06 0-.119-.015-.18-.015h-.149c-1.468 0-2.427-.675-3.279-1.288-.599-.42-1.107-.779-1.707-.884-.314-.045-.629-.074-.928-.074-.54 0-.958.089-1.272.149-.211.043-.391.074-.54.074-.374 0-.523-.224-.583-.42-.061-.192-.09-.389-.135-.567-.046-.181-.105-.494-.166-.57-1.918-.222-2.95-.642-3.189-1.226-.031-.063-.052-.15-.055-.225-.015-.243.165-.465.42-.509 3.264-.54 4.73-3.879 4.791-4.02l.016-.029c.18-.345.224-.645.119-.869-.195-.434-.884-.658-1.332-.809-.121-.029-.24-.074-.346-.119-1.107-.435-1.257-.93-1.197-1.273.09-.479.674-.793 1.168-.793.146 0 .27.029.383.074.42.194.789.3 1.104.3.234 0 .384-.06.465-.105l-.046-.569c-.098-1.626-.225-3.651.307-4.837C7.392 1.077 10.739.807 11.727.807l.419-.015h.06z"/></svg></span><span class="meta"><b>Snapchat</b><small>anshshoukat21</small></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span><span class="shine" aria-hidden="true"></span></a>
-<a class="tile  rise" style="--b:#EA4335;--i:11" href="#" target="_blank" rel="noopener" id="mail"><span class="glyph"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg></span><span class="meta"><b>Email</b><small id="mail-text">Write to me</small></span><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></span><span class="shine" aria-hidden="true"></span></a>
-    </div>
-  </main>
-
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="igGrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#FEDA75"/><stop offset=".25" stop-color="#FA7E1E"/><stop offset=".5" stop-color="#D62976"/><stop offset=".75" stop-color="#962FBF"/><stop offset="1" stop-color="#4F5BD5"/></linearGradient></defs></svg>
+<div class="stage" id="stage">
+ <img class="bg" id="bg" src="assets/portrait.jpg" alt="Portrait of Muhammad Sheraz" fetchpriority="high">
+ <div class="ghost" aria-hidden="true">Sheraz</div>
+ <div class="vig"></div>
+ <div class="beam" id="beam"></div>
+ <canvas id="dust"></canvas>
+ <div class="frame"></div>
+ <div class="clock2" aria-hidden="true"><div class="t"><span id="t2">--:--</span><small id="ap">PM</small></div><div class="p"><i></i>Faisalabad &middot; 31.45&deg;N 73.13&deg;E</div></div>
+ <main class="wrap">
+  <div class="top"><div class="moon"><i></i><span id="clock">Faisalabad</span></div></div>
+  <h1><span><i>Muhammad</i></span><span><i>Sheraz</i></span></h1>
+  <div class="sub">@muhammad5heraz</div>
+  <nav class="list" id="list" aria-label="Links">
+<a class="row" style="--b:#E1306C;--i:0" href="https://www.instagram.com/muhammad5heraz" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="url(#igGrad)" d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span><b>Instagram</b></a>
+<a class="row" style="--b:#FF2B2B;--i:1" href="https://youtube.com/@muhammad5heraz" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FF0000" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span><b>YouTube</b></a>
+<a class="row" style="--b:#25F4EE;--i:2" href="https://www.tiktok.com/@muhammad5heraz" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#25F4EE" transform="translate(-.7 -.7)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/><path fill="#FE2C55" transform="translate(.7 .7)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/><path fill="#fff" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span><b>TikTok</b></a>
+<a class="row" style="--b:#25D366;--i:3" href="https://wa.me/muhammad5heraz" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span><b>WhatsApp</b></a>
+<a class="row" style="--b:#2F7FD6;--i:4" href="https://www.linkedin.com/in/muhammad-sheraz-9138302b9" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#3B8FE0" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span><b>LinkedIn</b></a>
+<a class="row" style="--b:#C9CED6;--i:5" href="https://github.com/Muhammad5heraz" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span><b>GitHub</b></a>
+<a class="row" style="--b:#A6CE39;--i:6" href="https://orcid.org/0009-0007-3877-2232" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#A6CE39" d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/></svg></span><b>ORCID</b></a>
+<a class="row" style="--b:#C9CED6;--i:7" href="https://twitter.com/AnshSheraz" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span><b>X</b></a>
+<a class="row" style="--b:#1877F2;--i:8" href="https://www.facebook.com/anshshoukat/" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></span><b>Facebook</b></a>
+<a class="row" style="--b:#FF4500;--i:9" href="https://www.reddit.com/user/muhammad5heraz" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FF4500" d="M12 0C5.373 0 0 5.373 0 12c0 3.314 1.343 6.314 3.515 8.485l-2.286 2.286C.775 23.225 1.097 24 1.738 24H12c6.627 0 12-5.373 12-12S18.627 0 12 0Zm4.388 3.199c1.104 0 1.999.895 1.999 1.999 0 1.105-.895 2-1.999 2-.946 0-1.739-.657-1.947-1.539v.002c-1.147.162-2.032 1.15-2.032 2.341v.007c1.776.067 3.4.567 4.686 1.363.473-.363 1.064-.58 1.707-.58 1.547 0 2.802 1.254 2.802 2.802 0 1.117-.655 2.081-1.601 2.531-.088 3.256-3.637 5.876-7.997 5.876-4.361 0-7.905-2.617-7.998-5.87-.954-.447-1.614-1.415-1.614-2.538 0-1.548 1.255-2.802 2.803-2.802.645 0 1.239.218 1.712.585 1.275-.79 2.881-1.291 4.64-1.365v-.01c0-1.663 1.263-3.034 2.88-3.207.188-.911.993-1.595 1.959-1.595Zm-8.085 8.376c-.784 0-1.459.78-1.506 1.797-.047 1.016.64 1.429 1.426 1.429.786 0 1.371-.369 1.418-1.385.047-1.017-.553-1.841-1.338-1.841Zm7.406 0c-.786 0-1.385.824-1.338 1.841.047 1.017.634 1.385 1.418 1.385.785 0 1.473-.413 1.426-1.429-.046-1.017-.721-1.797-1.506-1.797Zm-3.703 4.013c-.974 0-1.907.048-2.77.135-.147.015-.241.168-.183.305.483 1.154 1.622 1.964 2.953 1.964 1.33 0 2.47-.81 2.953-1.964.057-.137-.037-.29-.184-.305-.863-.087-1.795-.135-2.769-.135Z"/></svg></span><b>Reddit</b></a>
+<a class="row" style="--b:#FFFC00;--i:10" href="https://www.snapchat.com/add/anshshoukat21" rel="noopener"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#FFFC00" d="M12.206.793c.99 0 4.347.276 5.93 3.821.529 1.193.403 3.219.299 4.847l-.003.06c-.012.18-.022.345-.03.51.075.045.203.09.401.09.3-.016.659-.12 1.033-.301.165-.088.344-.104.464-.104.182 0 .359.029.509.09.45.149.734.479.734.838.015.449-.39.839-1.213 1.168-.089.029-.209.075-.344.119-.45.135-1.139.36-1.333.81-.09.224-.061.524.12.868l.015.015c.06.136 1.526 3.475 4.791 4.014.255.044.435.27.42.509 0 .075-.015.149-.045.225-.24.569-1.273.988-3.146 1.271-.059.091-.12.375-.164.57-.029.179-.074.36-.134.553-.076.271-.27.405-.555.405h-.03c-.135 0-.313-.031-.538-.074-.36-.075-.765-.135-1.273-.135-.3 0-.599.015-.913.074-.6.104-1.123.464-1.723.884-.853.599-1.826 1.288-3.294 1.288-.06 0-.119-.015-.18-.015h-.149c-1.468 0-2.427-.675-3.279-1.288-.599-.42-1.107-.779-1.707-.884-.314-.045-.629-.074-.928-.074-.54 0-.958.089-1.272.149-.211.043-.391.074-.54.074-.374 0-.523-.224-.583-.42-.061-.192-.09-.389-.135-.567-.046-.181-.105-.494-.166-.57-1.918-.222-2.95-.642-3.189-1.226-.031-.063-.052-.15-.055-.225-.015-.243.165-.465.42-.509 3.264-.54 4.73-3.879 4.791-4.02l.016-.029c.18-.345.224-.645.119-.869-.195-.434-.884-.658-1.332-.809-.121-.029-.24-.074-.346-.119-1.107-.435-1.257-.93-1.197-1.273.09-.479.674-.793 1.168-.793.146 0 .27.029.383.074.42.194.789.3 1.104.3.234 0 .384-.06.465-.105l-.046-.569c-.098-1.626-.225-3.651.307-4.837C7.392 1.077 10.739.807 11.727.807l.419-.015h.06z"/></svg></span><b>Snapchat</b></a>
+<a class="row" style="--b:#EA4335;--i:11" href="#" id="mail"><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg></span><b>Email</b></a>
+  </nav>
+  <div class="hint">touch to light a link</div>
+ </main>
 </div>
-
 <script>
 (function(){
-  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  document.querySelectorAll(".tile").forEach(function(t){
-    t.addEventListener("pointermove", function(e){
-      var r = t.getBoundingClientRect();
-      t.style.setProperty("--x", (e.clientX - r.left) + "px");
-      t.style.setProperty("--y", (e.clientY - r.top) + "px");
+  var list=document.getElementById('list'),beam=document.getElementById('beam'),rows=[].slice.call(list.children),cur=-1,last=0;
+  function light(i){
+    if(i===cur||!rows[i])return;
+    if(rows[cur])rows[cur].classList.remove('lit');
+    cur=i;var r=rows[i];r.classList.add('lit');
+    var lr=list.getBoundingClientRect(),rr=r.getBoundingClientRect();
+    beam.style.setProperty('--bc',getComputedStyle(r).getPropertyValue('--b'));
+    beam.style.opacity='1';
+    beam.style.transform='translate('+(rr.left+60)+'px,'+(rr.top+rr.height/2-75)+'px) rotate(-6deg)';
+  }
+  function touchedAt(i){last=Date.now();light(i)}
+  rows.forEach(function(r,i){
+    r.addEventListener('pointerenter',function(){touchedAt(i)});
+    r.addEventListener('pointerdown',function(){touchedAt(i)});
+    r.addEventListener('focus',function(){touchedAt(i)});
+  });
+  list.addEventListener('pointermove',function(e){
+    var el=document.elementFromPoint(e.clientX,e.clientY);var row=el&&el.closest&&el.closest('.row');
+    if(row){var i=rows.indexOf(row);if(i>-1)touchedAt(i)}
+  });
+  // idle searchlight patrols the list
+  setTimeout(function(){light(0)},1500);
+  setInterval(function(){if(Date.now()-last>5000){light((cur+1)%rows.length)}},2600);
+  window.addEventListener('resize',function(){var c=cur;cur=-1;light(c<0?0:c)});
+  // tap: colour floods the screen, then travel
+  var fl=document.createElement('div');fl.className='flood';document.body.appendChild(fl);
+  list.addEventListener('click',function(e){
+    var a=e.target.closest('a');if(!a)return;
+    if(e.metaKey||e.ctrlKey||e.shiftKey||e.button||a.id==='mail'||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+    e.preventDefault();
+    fl.style.setProperty('--bc',getComputedStyle(a).getPropertyValue('--b'));
+    fl.style.left=e.clientX+'px';fl.style.top=e.clientY+'px';
+    void fl.offsetWidth;fl.classList.add('go');
+    setTimeout(function(){location.href=a.href},420);
+  });
+  window.addEventListener('pageshow',function(){fl.classList.remove('go')});
+  // email assembled in script so it isn't scraped
+  var addr=["anshshoukat","gmail.com"].join("@"),m=document.getElementById('mail');
+  m.href="mailto:"+addr;
+  // Faisalabad clock
+  var ck=document.getElementById('clock');
+  function tick(){try{ck.textContent="Faisalabad · "+new Intl.DateTimeFormat("en-US",{hour:"numeric",minute:"2-digit",hour12:true,timeZone:"Asia/Karachi"}).format(new Date())}catch(e){}}
+  function tick2(){try{var p=new Intl.DateTimeFormat("en-US",{hour:"numeric",minute:"2-digit",hour12:true,timeZone:"Asia/Karachi"}).formatToParts(new Date()),h='',m='',a='';p.forEach(function(x){if(x.type==='hour')h=x.value;if(x.type==='minute')m=x.value;if(x.type==='dayPeriod')a=x.value});document.getElementById('t2').textContent=h+':'+m;document.getElementById('ap').textContent=a}catch(e){}}
+  tick();tick2();setInterval(function(){tick();tick2()},1000);
+  // photo drifts a touch with the pointer
+  var bg=document.getElementById('bg');
+  if(!matchMedia('(prefers-reduced-motion:reduce)').matches&&matchMedia('(hover:hover)').matches){
+    window.addEventListener('pointermove',function(e){
+      var x=(e.clientX/innerWidth-.5)*-14,y=(e.clientY/innerHeight-.5)*-10;
+      bg.style.translate=x+'px '+y+'px';
     });
-  });
-
-  var po = document.querySelector(".portrait");
-  po.addEventListener("pointermove", function(e){
-    var r = po.getBoundingClientRect();
-    po.style.setProperty("--mx", (e.clientX - r.left) + "px");
-    po.style.setProperty("--my", (e.clientY - r.top) + "px");
-  });
-
-  var el = document.getElementById("clock");
-  function tick(){
-    try { el.textContent = new Intl.DateTimeFormat("en-GB",{hour:"2-digit",minute:"2-digit",hour12:false,timeZone:"Asia/Karachi"}).format(new Date()); }
-    catch(e){ el.textContent = ""; }
+    bg.style.transition='translate .8s ease-out';
   }
-  tick(); setInterval(tick, 1000);
-
-  var addr = ["anshshoukat","gmail.com"].join("@");
-  var m = document.getElementById("mail");
-  m.href = "mailto:" + addr;
-  m.removeAttribute("target");
-  document.getElementById("mail-text").textContent = addr;
-
-  // Soft drifting glitter
-  if (reduce) return;
-  var cv = document.getElementById("sparkle"), cx = cv.getContext("2d");
-  var W = 0, H = 0, dpr = Math.min(window.devicePixelRatio || 1, 2), dust = [];
-  function size(){
-    W = innerWidth; H = innerHeight;
-    cv.width = W * dpr; cv.height = H * dpr; cx.setTransform(dpr,0,0,dpr,0,0);
-    var n = Math.round(Math.min(55, W * H / 16000));
-    dust = [];
-    for (var i = 0; i < n; i++) dust.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+.5,p:Math.random()*6.28,s:Math.random()*.5+.25,v:Math.random()*.05+.012,g:Math.random()<.2});
-  }
-  function star(x,y,r){
-    cx.beginPath();
-    cx.moveTo(x,y-r); cx.quadraticCurveTo(x,y,x+r,y); cx.quadraticCurveTo(x,y,x,y+r);
-    cx.quadraticCurveTo(x,y,x-r,y); cx.quadraticCurveTo(x,y,x,y-r); cx.fill();
-  }
-  addEventListener("resize", size); size();
-  var t0 = performance.now();
-  function frame(now){
-    if (document.hidden) { requestAnimationFrame(frame); return; }
-    var t = (now - t0) / 1000;
-    cx.clearRect(0,0,W,H);
-    for (var i = 0; i < dust.length; i++){
-      var d = dust[i], a = (Math.sin(t*d.s + d.p) + 1) / 2;
-      d.y -= d.v; if (d.y < -4) { d.y = H + 4; d.x = Math.random()*W; }
-      cx.fillStyle = "rgba(255," + (d.g ? 224 : 244) + "," + (d.g ? 170 : 230) + "," + (a*.6) + ")";
-      if (d.g) star(d.x, d.y, d.r*3*a + .5); else { cx.beginPath(); cx.arc(d.x,d.y,d.r*.7,0,6.283); cx.fill(); }
-    }
-    requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
+  // dust motes in the beam
+  var c=document.getElementById('dust'),x=c.getContext('2d'),W,H,dpr=Math.min(devicePixelRatio||1,2),M=[];
+  function size(){W=c.width=innerWidth*dpr;H=c.height=innerHeight*dpr}
+  size();addEventListener('resize',size);
+  for(var k=0;k<46;k++)M.push({x:Math.random(),y:Math.random(),r:Math.random()*1.4+.4,s:Math.random()*.00006+.00002,p:Math.random()*6.28});
+  (function loop(t){
+    x.clearRect(0,0,W,H);
+    M.forEach(function(m){
+      m.y-=m.s*16;m.x+=Math.sin(t/3000+m.p)*.00006;if(m.y<-.02){m.y=1.02;m.x=Math.random()}
+      var a=(.25+.35*Math.sin(t/900+m.p))*Math.min(1,m.x*1.6);
+      x.fillStyle='rgba(243,201,139,'+Math.max(0,a)+')';x.beginPath();x.arc(m.x*W,m.y*H,m.r*dpr,0,6.28);x.fill();
+    });
+    requestAnimationFrame(loop);
+  })(0);
 })();
 </script>
 </body>
