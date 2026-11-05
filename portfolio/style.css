@@ -437,3 +437,5 @@ h2 i{animation:none!important;background-position:50% 0}
 .s .dot,.dotp{animation:none!important}
 .card[data-d],.vc,.s .t,.r.f{will-change:auto}
 h2 i{background:none!important;-webkit-text-fill-color:currentColor;color:var(--ac)}
+
+@media (min-width:701px){.pop-card{max-height:94vh;max-height:94svh}}
