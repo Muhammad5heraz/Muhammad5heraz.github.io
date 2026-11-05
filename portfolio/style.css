@@ -359,3 +359,35 @@ main{position:relative;z-index:1}
 @media (min-width:861px) and (min-height:560px){.cr{padding-top:7px!important;padding-bottom:7px!important}}
 /* hero light: right of the face, on the lit side */
 #profile::after{background:radial-gradient(circle at 84% 0%,#FFE9B84a 0,#F3C98B22 12%,#F3C98B0c 28%,transparent 46%),radial-gradient(ellipse 16% 34% at 79% 40%,#FFE2A81f,transparent 72%),repeating-conic-gradient(from 100deg at 84% 0%,#FFE2A80c 0 1.5deg,transparent 1.5deg 9deg);-webkit-mask:radial-gradient(ellipse 60% 85% at 84% 0%,#000 0,transparent 100%);mask:radial-gradient(ellipse 60% 85% at 84% 0%,#000 0,transparent 100%)}
+
+/* ===== motion layer ===== */
+@property --sunc{syntax:'<color>';inherits:true;initial-value:#F3C98B}
+#sun{--sunc:#F3C98B;transition:--sunc 1.2s ease}
+#sun .core{background:radial-gradient(circle,#FFF1CC55 0,color-mix(in srgb,var(--sunc) 24%,transparent) 14%,color-mix(in srgb,var(--sunc) 14%,transparent) 36%,color-mix(in srgb,var(--sunc) 5%,transparent) 58%,transparent 72%);translate:calc(var(--px,0)*-22px) calc(var(--py,0)*-16px);transition:translate .9s var(--ease)}
+#sun .rays{translate:calc(var(--px,0)*-12px) calc(var(--py,0)*-9px);transition:translate .9s var(--ease);background:repeating-conic-gradient(from 0deg at 50% 50%,color-mix(in srgb,var(--sunc) 22%,transparent) 0 3deg,transparent 3deg 11deg)}
+#sun .cool{translate:calc(var(--px,0)*18px) calc(var(--py,0)*14px);transition:translate 1.1s var(--ease)}
+#sun .mid{translate:calc(var(--px,0)*28px) calc(var(--py,0)*-20px);transition:translate 1.3s var(--ease)}
+#prog{position:fixed;left:0;top:0;height:3px;width:100%;z-index:60;transform-origin:0 50%;transform:scaleX(var(--sp,0));background:linear-gradient(90deg,var(--ac),#FFF1CC);box-shadow:0 0 14px var(--ac);pointer-events:none;transition:background .6s}
+#glow{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;z-index:2;pointer-events:none;mix-blend-mode:screen;opacity:0;background:radial-gradient(circle,color-mix(in srgb,var(--ac) 16%,transparent),transparent 62%);transform:translate3d(var(--gx,-999px),var(--gy,-999px),0);transition:opacity .5s}
+#glow.on{opacity:1}
+/* headline shine */
+h2 i{background:linear-gradient(100deg,var(--ac) 38%,#fff 50%,var(--ac) 62%) 160% 0/260% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shine 7s ease-in-out 1.2s infinite}
+@keyframes shine{0%,55%{background-position:160% 0}100%{background-position:-60% 0}}
+/* living dots */
+.s .dot,.dotp{animation:ping 2.8s ease-out infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--ac) 55%,transparent),0 0 16px var(--ac)}70%,100%{box-shadow:0 0 0 12px transparent,0 0 16px var(--ac)}}
+/* chapter label line draws in */
+.small{position:relative}
+/* tilt on pointer devices */
+@media (hover:hover) and (pointer:fine){
+ .card[data-d]:hover,.vc:hover,.s .t:hover,.r.f:hover{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-4px) scale(1.012);transition:border-color .35s,transform .18s ease-out,background .35s}
+ .card[data-d],.vc,.s .t,.r.f{transition:border-color .35s,transform .6s var(--ease),background .35s;will-change:transform}
+ .btn{transition:transform .25s var(--ease),background .3s,border-color .3s;will-change:transform}
+ .ro:hover,.cr:hover,.r:hover{transform:translateX(4px)}
+ .ro,.cr,.r:not(.f){transition:transform .45s var(--ease)}
+ .rail ol li a{transition:padding .3s var(--ease),color .3s,background .3s}.rail ol li a:hover{padding-left:calc(var(--rp,12px) + 6px)}
+}
+/* entrance: staggered rise with a soft glass focus */
+.rv{transition-timing-function:cubic-bezier(.16,1,.3,1)}
+@media (prefers-reduced-motion:reduce){#glow,#prog{display:none}h2 i{animation:none}.s .dot,.dotp{animation:none}#sun .core,#sun .rays,#sun .cool,#sun .mid{translate:none}}
+@media (hover:none){#glow{display:none}}
