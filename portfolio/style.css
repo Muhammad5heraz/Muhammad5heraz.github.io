@@ -593,3 +593,8 @@ h2 i{background:none!important;-webkit-text-fill-color:currentColor;color:var(--
  .dn.two>.aw0 p{font-size:11.5px!important}.dn .aw0 h3{font-size:20px!important}
 }
 @media (max-width:860px){.stkn{margin-top:12px!important}.dn p{padding-right:22px}}
+@media (max-width:860px){
+ section.ch:not(#profile){padding-top:64px}
+ .fit>h2{font-size:clamp(30px,9.5vw,40px)!important}
+ .fit>.kick{margin-top:6px}
+}

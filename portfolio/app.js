@@ -174,7 +174,7 @@
     t.after(w);
     function upd(){var c=t.scrollLeft+t.clientWidth/2,best=0,bd=1e9;vis.forEach(function(el,i){var m=el.offsetLeft+el.offsetWidth/2,dd=Math.abs(m-c);if(dd<bd){bd=dd;best=i}});[].forEach.call(w.children,function(x,i){x.classList.toggle('on',i===best)})}
     t.addEventListener('scroll',function(){requestAnimationFrame(upd)},{passive:true});upd()}
-  var SECS=[['#research .body'],['#publications .body'],['#education .body'],['#experience .body'],['#skills .body','#skills .row4'],['#awards .body'],['#beyond .body'],['#references .body']],ALWAYS=['#certificates .body','#vault .vg'];
+  var SECS=[],ALWAYS=['#research .body','#publications .body','#education .body','#experience .body','#skills .body','#skills .row4','#awards .body','#certificates .body','#beyond .body','#vault .vg','#references .body'];
   function reset(t){t.classList.remove('swipe','stkn','two','meas','dn');var n=t.nextElementSibling;if(n&&n.classList.contains('sdots'))n.remove()}
   function kids(t){var c=0;[].forEach.call(t.children,function(x){if(/(^| )(roles|awl)( |$)/.test(x.className))c+=x.children.length;else if(!x.hidden)c++});return c}
   function ok(ts){return ts.every(function(t){return t.scrollHeight<=t.clientHeight+2})}
