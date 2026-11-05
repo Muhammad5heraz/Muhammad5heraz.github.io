@@ -105,3 +105,5 @@
     if(open&&e.key==='Escape'&&!d.getElementById('viewer').open){e.preventDefault();hide()}
     if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches('[data-d]')){e.preventDefault();show(e.target)}});
 })();
+
+;(function(){var t=0;document.addEventListener('pointermove',function(e){var el=e.target.closest&&e.target.closest('.card,.vc,.s .t,.r.f,.pfacts div');if(!el||t)return;t=1;requestAnimationFrame(function(){t=0;var r=el.getBoundingClientRect();el.style.setProperty('--mx',(e.clientX-r.left)+'px');el.style.setProperty('--my',(e.clientY-r.top)+'px')})},{passive:true})})();

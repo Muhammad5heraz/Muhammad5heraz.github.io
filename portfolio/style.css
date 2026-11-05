@@ -304,3 +304,38 @@ html.pop-open{overflow:hidden}
 .db{overflow:auto}.db img{height:auto;object-fit:initial;display:block;background:#fff}
 @media (min-width:861px) and (min-height:560px) and (max-height:800px){.vc .th{height:64px}}
 @media (prefers-reduced-motion:reduce){.card::before,.r::before,.ro::before,.cr::before,.s::before,.vc::before{transition:none}}
+
+/* ===== Sun & acrylic glass ===== */
+#sun{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+#sun i{position:absolute;display:block}
+#sun .core{right:-9vmax;top:-9vmax;width:34vmax;height:34vmax;border-radius:50%;background:radial-gradient(circle,#FFF4D6 0,#FFD98A 14%,#F3C98B66 34%,#F3C98B1c 56%,transparent 72%);animation:sunb 9s ease-in-out infinite alternate}
+#sun .rays{right:-30vmax;top:-30vmax;width:78vmax;height:78vmax;border-radius:50%;background:repeating-conic-gradient(from 0deg at 50% 50%,#FFE2A826 0 3deg,transparent 3deg 11deg);-webkit-mask:radial-gradient(circle,#000 0,transparent 62%);mask:radial-gradient(circle,#000 0,transparent 62%);animation:sunr 140s linear infinite}
+#sun .wash{inset:0;background:radial-gradient(ellipse 80% 60% at 100% 0,#F3C98B1f,transparent 65%)}
+#sun .cool{left:-12vmax;bottom:-14vmax;width:42vmax;height:42vmax;border-radius:50%;background:radial-gradient(circle,#4F7BD02e,transparent 66%)}
+#sun .mid{left:38%;top:42%;width:30vmax;height:30vmax;border-radius:50%;background:radial-gradient(circle,#B79CFF1a,transparent 66%)}
+@keyframes sunb{from{transform:scale(.96);opacity:.88}to{transform:scale(1.06);opacity:1}}
+@keyframes sunr{to{transform:rotate(360deg)}}
+main{position:relative;z-index:1}
+/* acrylic: frosted translucent panes lit from the sun (top-right) */
+.card,.vc,.s .t,.r.f,.pfacts div{
+ background:
+  radial-gradient(240px circle at var(--mx,85%) var(--my,0%),#FFF1D01f,transparent 65%),
+  linear-gradient(215deg,#FFFFFF1f 0,#FFFFFF0a 38%,#FFFFFF05 100%);
+ -webkit-backdrop-filter:blur(16px) saturate(1.5);backdrop-filter:blur(16px) saturate(1.5);
+ border:1px solid #FFFFFF22;border-top-color:#FFFFFF3d;border-right-color:#FFE8B533;
+ box-shadow:inset 0 1px 0 #FFFFFF38,inset -1px 0 0 #FFE2A31f,0 14px 34px -16px #000000b3}
+.r,.ro,.cr,.s{--g:1}
+.r::before,.ro::before,.cr::before,.s::before{opacity:1;background:linear-gradient(215deg,#FFFFFF17,#FFFFFF05 60%,#FFFFFF03);border-color:#FFFFFF1a;border-top-color:#FFFFFF33;border-right-color:#FFE8B52b;box-shadow:inset 0 1px 0 #FFFFFF2b,0 12px 28px -18px #000000b0;-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);transition:background .35s,border-color .35s,box-shadow .35s}
+.r:hover::before,.ro:hover::before,.cr:hover::before,.s:hover::before,.r:focus-visible::before,.ro:focus-visible::before,.cr:focus-visible::before,.s:focus-visible::before,.r:active::before,.ro:active::before,.cr:active::before,.s:active::before{background:linear-gradient(90deg,color-mix(in srgb,var(--ac) 22%,transparent),color-mix(in srgb,var(--ac) 6%,#FFFFFF08) 70%,#FFFFFF05);border-color:color-mix(in srgb,var(--ac) 55%,transparent)}
+/* hover keeps the glass but tints it with the chapter colour */
+.card:hover,.vc:hover,.s:hover .t,.r.f:hover{border-color:color-mix(in srgb,var(--ac) 55%,transparent)}
+.card::before,.vc::before,.r.f::before{background:linear-gradient(90deg,color-mix(in srgb,var(--ac) 20%,transparent),color-mix(in srgb,var(--ac) 5%,transparent) 70%,transparent)}
+.top{background:#0B0F1499;-webkit-backdrop-filter:blur(18px) saturate(1.5);backdrop-filter:blur(18px) saturate(1.5);border-bottom:1px solid #FFFFFF1f;box-shadow:inset 0 -1px 0 #FFFFFF10}
+.pop-card{background:linear-gradient(215deg,#1a2029f2,#0d1117f5);border:1px solid #FFFFFF26;border-top-color:#FFFFFF44;box-shadow:inset 0 1px 0 #FFFFFF30,0 40px 90px -20px #000}
+.pfacts div{box-shadow:inset 0 1px 0 #FFFFFF2b}
+@media (max-width:860px){#sun .core{width:56vmax;height:56vmax;right:-20vmax;top:-20vmax}#sun .rays{display:none}.card,.vc,.s .t,.r.f{-webkit-backdrop-filter:blur(10px) saturate(1.3);backdrop-filter:blur(10px) saturate(1.3)}}
+@media (prefers-reduced-motion:reduce){#sun .core,#sun .rays{animation:none}}
+/* softer sun disc, calmer glass rows, sun over the hero */
+#sun .core{background:radial-gradient(circle,#FFF1CC99 0,#FFD98A66 12%,#F3C98B44 32%,#F3C98B16 54%,transparent 72%)}
+.r::before,.ro::before,.cr::before,.s::before{background:linear-gradient(215deg,#FFFFFF0d,#FFFFFF04 60%);border-color:#FFFFFF12;border-top-color:#FFFFFF24;box-shadow:inset 0 1px 0 #FFFFFF1c}
+#profile::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(circle at 96% -6%,#FFE9B866 0,#F3C98B33 16%,#F3C98B14 34%,transparent 58%),repeating-conic-gradient(from 200deg at 96% -6%,#FFE2A814 0 2.5deg,transparent 2.5deg 9deg);-webkit-mask:radial-gradient(circle at 96% -6%,#000,transparent 70%);mask:radial-gradient(circle at 96% -6%,#000,transparent 70%)}
