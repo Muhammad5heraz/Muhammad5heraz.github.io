@@ -346,3 +346,16 @@ main{position:relative;z-index:1}
 @keyframes sunb{from{transform:scale(.97);opacity:.45}to{transform:scale(1.05);opacity:.65}}
 #profile::after{background:radial-gradient(circle at 57% 4%,#FFE9B845 0,#F3C98B22 14%,#F3C98B0d 30%,transparent 52%),radial-gradient(ellipse 22% 34% at 69% 40%,#FFE2A81c,transparent 70%),repeating-conic-gradient(from 105deg at 57% 4%,#FFE2A80d 0 2deg,transparent 2deg 8deg);-webkit-mask:radial-gradient(circle at 57% 4%,#000,transparent 62%),linear-gradient(#000,#000);mask:radial-gradient(circle at 57% 4%,#000,transparent 62%),linear-gradient(#000,#000);-webkit-mask-composite:source-over;mask-composite:add}
 #profile::after{background:radial-gradient(circle at 60% 2%,#FFE9B83a 0,#F3C98B1a 12%,#F3C98B0a 28%,transparent 46%),radial-gradient(ellipse 18% 30% at 70% 42%,#FFE2A818,transparent 70%),repeating-conic-gradient(from 120deg at 60% 2%,#FFE2A80a 0 1.5deg,transparent 1.5deg 9deg);-webkit-mask:radial-gradient(circle at 60% 2%,#000 0,transparent 45%);mask:radial-gradient(circle at 60% 2%,#000 0,transparent 45%)}
+/* clear separation: every pane is its own box with a gap and a firm glass rim */
+.r,.ro,.cr{border-top:0!important;padding-left:14px!important;padding-right:14px!important;margin-bottom:8px}
+.r:last-child,.ro:last-child,.cr:last-child{margin-bottom:0}
+.ro:first-child{padding-top:18px}
+.r::before,.ro::before,.cr::before,.s::before,.r.f::before{inset:0!important;border-radius:16px!important;border:1px solid #FFFFFF2e;border-top-color:#FFFFFF4d;border-right-color:#FFE8B545;background:linear-gradient(215deg,#FFFFFF1a,#FFFFFF08 55%,#FFFFFF04)!important;box-shadow:inset 0 1px 0 #FFFFFF36,0 10px 26px -14px #000000c0}
+.r:hover::before,.ro:hover::before,.cr:hover::before,.s:hover::before{border-color:color-mix(in srgb,var(--ac) 60%,transparent);background:linear-gradient(90deg,color-mix(in srgb,var(--ac) 24%,transparent),color-mix(in srgb,var(--ac) 7%,#FFFFFF08) 70%,#FFFFFF05)!important}
+.pipe{gap:14px}
+.s{padding:12px 12px 12px!important}
+.card,.vc,.s .t,.r.f,.pfacts div{border-color:#FFFFFF2e;border-top-color:#FFFFFF4d}
+.cgc{background:transparent!important;border:0!important;padding:0!important}
+@media (min-width:861px) and (min-height:560px){.cr{padding-top:7px!important;padding-bottom:7px!important}}
+/* hero light: right of the face, on the lit side */
+#profile::after{background:radial-gradient(circle at 84% 0%,#FFE9B84a 0,#F3C98B22 12%,#F3C98B0c 28%,transparent 46%),radial-gradient(ellipse 16% 34% at 79% 40%,#FFE2A81f,transparent 72%),repeating-conic-gradient(from 100deg at 84% 0%,#FFE2A80c 0 1.5deg,transparent 1.5deg 9deg);-webkit-mask:radial-gradient(ellipse 60% 85% at 84% 0%,#000 0,transparent 100%);mask:radial-gradient(ellipse 60% 85% at 84% 0%,#000 0,transparent 100%)}
