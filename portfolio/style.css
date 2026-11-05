@@ -606,3 +606,34 @@ h2 i{background:none!important;-webkit-text-fill-color:currentColor;color:var(--
  .slide.dn>.mv{padding:11px 13px!important}
  .slide.dn{gap:9px}
 }
+
+/* ===== build 36 · polish: sharper type, calmer motion, lower latency (no layout changes) ===== */
+:root{--ease:cubic-bezier(.22,1,.36,1)}
+body{text-rendering:optimizeLegibility;-moz-osx-font-smoothing:grayscale;font-kerning:normal;font-feature-settings:"kern","liga","calt"}
+h1,h2,h3,.pop-in h3{font-optical-sizing:auto;font-kerning:normal}
+::selection{background:color-mix(in srgb,var(--ac,#F3C98B) 38%,transparent);color:#fff}
+img{-webkit-user-drag:none;user-select:none}
+/* reveal: a touch quicker and cleaner */
+.rv{transform:translateY(22px);filter:blur(3px);transition:opacity .8s var(--ease),transform .8s var(--ease),filter .8s var(--ease);transition-delay:calc(var(--d,0)*60ms)}
+.in .rv,.rv.in{transform:none;filter:none}
+.no-js .rv{transform:none;filter:none}
+/* popup: opens sooner, content follows the card without waiting */
+.pop-bg{transition:opacity .4s var(--ease)}
+.pop-in>*{transform:translateY(12px);filter:blur(4px)}
+.pop.on .pop-in>*{animation-duration:.62s;animation-delay:calc(var(--i,0)*55ms + 140ms)}
+.pop-card{scrollbar-width:thin;scrollbar-color:#ffffff30 transparent}
+dialog[open]{animation:fade .35s var(--ease) both}
+/* touch / click feedback */
+.btn:active{transform:scale(.97)}
+[data-d]:active{transform:scale(.985);transition-duration:.12s}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--ac,#F3C98B);outline-offset:3px}
+/* compositor friendly sun + portrait; stop idle loops while a popup is open */
+#sun{contain:strict}
+#sun .core,#sun .rays,.bg{will-change:transform,opacity;backface-visibility:hidden}
+.pop-open #sun i,.pop-open .bg,.pop-open .bg2,.pop-open .map .arc{animation-play-state:paused}
+/* phone: steadier carousel */
+@media (max-width:860px){
+ .swipe{overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+ .swipe>*{scroll-snap-stop:always}
+ .sdots i{transition:width .35s var(--ease),background-color .3s}
+}
