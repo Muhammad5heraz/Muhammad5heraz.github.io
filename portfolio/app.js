@@ -109,12 +109,12 @@
     if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches('[data-d]')){e.preventDefault();show(e.target)}});
 })();
 
-;(function(){var t=0;document.addEventListener('pointermove',function(e){var el=e.target.closest&&e.target.closest('.card,.vc,.s .t,.r.f,.pfacts div');if(!el||t)return;t=1;requestAnimationFrame(function(){t=0;var r=el.getBoundingClientRect();el.style.setProperty('--mx',(e.clientX-r.left)+'px');el.style.setProperty('--my',(e.clientY-r.top)+'px')})},{passive:true})})();
+;(function(){var t=0;document.addEventListener('pointermove',function(e){var el=e.target.closest&&e.target.closest('.card,.vc,.s .t,.r.f,.pfacts div');if(!el||t||el.classList.contains('on'))return;t=1;requestAnimationFrame(function(){t=0;var r=el.getBoundingClientRect();el.style.setProperty('--mx',(e.clientX-r.left)+'px');el.style.setProperty('--my',(e.clientY-r.top)+'px')})},{passive:true})})();
 ;(function(){
   var d=document,de=d.documentElement,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
   var sun=d.getElementById('sun'),glow=d.getElementById('glow'),pr=d.getElementById('prog');
   /* scroll progress */
-  var tk=0;function sp(){tk=0;var m=de.scrollHeight-innerHeight;de.style.setProperty('--sp',m>0?Math.min(1,scrollY/m):0)}
+  var tk=0;function sp(){tk=0;var m=de.scrollHeight-innerHeight;(pr||de).style.setProperty('--sp',m>0?Math.min(1,scrollY/m):0)}
   addEventListener('scroll',function(){if(!tk){tk=1;requestAnimationFrame(sp)}},{passive:true});sp();
   /* sun takes each chapter's colour */
   if(sun){var secs=[].slice.call(d.querySelectorAll('section.ch'));
@@ -126,10 +126,10 @@
   addEventListener('pointermove',function(e){px=e.clientX;py=e.clientY;tgt=e.target;if(!fr){fr=1;requestAnimationFrame(tick)}},{passive:true});
   d.addEventListener('pointerleave',function(){if(glow)glow.classList.remove('on')});
   function tick(){fr=0;
-    de.style.setProperty('--px',(px/innerWidth-.5).toFixed(3));de.style.setProperty('--py',(py/innerHeight-.5).toFixed(3));
+    if(sun){sun.style.setProperty('--px',(px/innerWidth-.5).toFixed(3));sun.style.setProperty('--py',(py/innerHeight-.5).toFixed(3))}
     if(glow){glow.classList.add('on');glow.style.setProperty('--gx',px+'px');glow.style.setProperty('--gy',py+'px')}
     var t=tgt&&tgt.closest?tgt.closest('.card[data-d],.vc,.s .t,.r.f'):null;
-    if(t&&!t.closest('#pop')){var r=t.getBoundingClientRect(),x=(px-r.left)/r.width-.5,y=(py-r.top)/r.height-.5;
+    if(t&&!t.closest('#pop')&&!t.classList.contains('on')){var r=t.getBoundingClientRect(),x=(px-r.left)/r.width-.5,y=(py-r.top)/r.height-.5;
       t.style.setProperty('--ry',(x*7).toFixed(2)+'deg');t.style.setProperty('--rx',(-y*7).toFixed(2)+'deg')}
     var b=tgt&&tgt.closest?tgt.closest('.btn'):null;
     if(b){var q=b.getBoundingClientRect();b.style.transform='translate('+((px-q.left-q.width/2)*.18).toFixed(1)+'px,'+((py-q.top-q.height/2)*.28).toFixed(1)+'px)'}
@@ -276,9 +276,10 @@
  function set(c,v,fast){var s=S.get(c);if(!s||s.on===v)return;s.on=v;
   if(v){s.r=c.getBoundingClientRect();persp(c)}
   c.classList.toggle('on',v);
-  if(!s.a){s.a=c.animate(KF,{duration:reduce?1:1000,easing:'cubic-bezier(.3,1.25,.45,1)',fill:'both'});s.a.pause();s.a.currentTime=0}
-  var a=s.a;a.playbackRate=v?1:(fast?-2.4:-1.35);a.onfinish=null;a.play();
-  a.onfinish=function(){if(!s.on){a.cancel();if(s.a===a)s.a=null}};
+  if(!s.a){s.a=c.animate(KF,{duration:reduce?1:820,easing:'cubic-bezier(.4,.02,.18,1)',fill:'both'});s.a.pause();s.a.currentTime=0}
+  var a=s.a;a.playbackRate=v?1:(fast?-2.2:-1.5);a.onfinish=null;a.play();
+  c.style.willChange='transform';clearTimeout(s.wc);
+  a.onfinish=function(){s.wc=setTimeout(function(){c.style.willChange=''},120);if(!s.on){a.cancel();if(s.a===a)s.a=null}};
   if(v&&!reduce&&s.gl.animate)s.gl.animate([{transform:'translateX(-130%) skewX(-18deg)',opacity:0},{opacity:1,offset:.35},{transform:'translateX(130%) skewX(-18deg)',opacity:0}],{duration:900,easing:'cubic-bezier(.4,0,.2,1)'})}
  function clearAll(except,fast){cards.forEach(function(c){if(c!==except)set(c,false,fast)})}
  cards.forEach(build);lock();
@@ -297,16 +298,17 @@
   else set(c,false,true)
  },true);
  /* desktop: hover turns the card over; leaving turns it back */
- var mx=0,my=0,raf=0,dwell=null,want=null;
+ var mx=0,my=0,raf=0,dwell=null,want=null,rc=null,rcT=0;
  function inside(r,x,y,m){return r&&x>=r.left-m&&x<=r.right+m&&y>=r.top-m&&y<=r.bottom+m}
+ function rects(){var now=performance.now();if(rc&&now-rcT<900)return rc;rc=[];var vh=innerHeight;cards.forEach(function(c){var s=S.get(c);if(s.a||s.on)return;var r=c.getBoundingClientRect();if(r.bottom>0&&r.top<vh&&r.width)rc.push([c,r])});rcT=now;return rc}
  function track(){raf=0;if(d.documentElement.classList.contains('pop-open'))return;
-  var cur=cards.filter(function(c){return S.get(c).on})[0];
+  var cur=null;cards.forEach(function(c){if(S.get(c).on)cur=c});
   if(cur&&inside(S.get(cur).r,mx,my,6))return;
-  var hit=null,el=d.elementFromPoint(mx,my),sec=el&&el.closest('section');
-  if(sec)sec.querySelectorAll('.fc').forEach(function(c){var s=S.get(c),r=s.a?s.r:c.getBoundingClientRect();if(!hit&&inside(r,mx,my,0)&&!c.closest('.swipe'))hit=c});
+  var hit=null;rects().forEach(function(x){if(!hit&&inside(x[1],mx,my,0)&&!x[0].closest('.swipe'))hit=x[0]});
   if(cur&&hit!==cur)set(cur,false);
-  if(hit&&hit!==cur){if(want!==hit){want=hit;clearTimeout(dwell);dwell=setTimeout(function(){if(want===hit&&!d.documentElement.classList.contains('pop-open')){clearAll(hit);set(hit,true)}},80)}}
+  if(hit&&hit!==cur){if(want!==hit){want=hit;clearTimeout(dwell);dwell=setTimeout(function(){if(want===hit&&!d.documentElement.classList.contains('pop-open')){clearAll(hit);set(hit,true)}},70)}}
   else{want=null;clearTimeout(dwell)}}
+ addEventListener('scroll',function(){rc=null},{passive:true,capture:true});addEventListener('resize',function(){rc=null});
  addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;mx=e.clientX;my=e.clientY;if(!raf)raf=requestAnimationFrame(track)},{passive:true});
  d.addEventListener('mouseleave',function(){want=null;clearAll()});
  addEventListener('scroll',function(){clearAll(null,true)},{passive:true,capture:true});
