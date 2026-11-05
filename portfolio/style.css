@@ -339,3 +339,10 @@ main{position:relative;z-index:1}
 #sun .core{background:radial-gradient(circle,#FFF1CC99 0,#FFD98A66 12%,#F3C98B44 32%,#F3C98B16 54%,transparent 72%)}
 .r::before,.ro::before,.cr::before,.s::before{background:linear-gradient(215deg,#FFFFFF0d,#FFFFFF04 60%);border-color:#FFFFFF12;border-top-color:#FFFFFF24;box-shadow:inset 0 1px 0 #FFFFFF1c}
 #profile::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(circle at 96% -6%,#FFE9B866 0,#F3C98B33 16%,#F3C98B14 34%,transparent 58%),repeating-conic-gradient(from 200deg at 96% -6%,#FFE2A814 0 2.5deg,transparent 2.5deg 9deg);-webkit-mask:radial-gradient(circle at 96% -6%,#000,transparent 70%);mask:radial-gradient(circle at 96% -6%,#000,transparent 70%)}
+/* subtle sun everywhere; in the hero it sits to the left of the portrait, on the lit side of the face */
+#sun .core{opacity:.55;background:radial-gradient(circle,#FFF1CC55 0,#FFD98A33 14%,#F3C98B22 34%,#F3C98B0c 56%,transparent 72%)}
+#sun .rays{opacity:.35}
+#sun .wash{opacity:.5}
+@keyframes sunb{from{transform:scale(.97);opacity:.45}to{transform:scale(1.05);opacity:.65}}
+#profile::after{background:radial-gradient(circle at 57% 4%,#FFE9B845 0,#F3C98B22 14%,#F3C98B0d 30%,transparent 52%),radial-gradient(ellipse 22% 34% at 69% 40%,#FFE2A81c,transparent 70%),repeating-conic-gradient(from 105deg at 57% 4%,#FFE2A80d 0 2deg,transparent 2deg 8deg);-webkit-mask:radial-gradient(circle at 57% 4%,#000,transparent 62%),linear-gradient(#000,#000);mask:radial-gradient(circle at 57% 4%,#000,transparent 62%),linear-gradient(#000,#000);-webkit-mask-composite:source-over;mask-composite:add}
+#profile::after{background:radial-gradient(circle at 60% 2%,#FFE9B83a 0,#F3C98B1a 12%,#F3C98B0a 28%,transparent 46%),radial-gradient(ellipse 18% 30% at 70% 42%,#FFE2A818,transparent 70%),repeating-conic-gradient(from 120deg at 60% 2%,#FFE2A80a 0 1.5deg,transparent 1.5deg 9deg);-webkit-mask:radial-gradient(circle at 60% 2%,#000 0,transparent 45%);mask:radial-gradient(circle at 60% 2%,#000 0,transparent 45%)}
