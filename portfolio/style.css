@@ -526,3 +526,22 @@ h2 i{background:none!important;-webkit-text-fill-color:currentColor;color:var(--
  #profile.tight .bio .rest{display:none}#profile.tight .bio{width:64vw}
  #profile.tight2 h1{font-size:clamp(44px,14vw,66px)}#profile.tight2 .bio{margin-top:14px}#profile.tight2 .bio .lede{font-size:21px}#profile.tight2 .hk{display:none}
 }
+
+/* ===== Mobile fan v3: vertical semicircle on the left ===== */
+@property --x{syntax:'<length>';inherits:false;initial-value:0px}
+@property --y{syntax:'<length>';inherits:false;initial-value:0px}
+@media (max-width:860px){
+ .h-in{padding-top:54px!important}
+ h1{font-size:clamp(46px,15vw,68px)!important}
+ .bio{width:54vw!important;margin-top:16px!important}.bio .lede{font-size:21px!important}.bio .rest{font-size:11.5px!important;line-height:1.45!important;margin-top:8px!important}
+ #profile.tight .bio .rest{display:none}
+ .fan{right:auto!important;left:34px;top:60%;bottom:auto!important;width:0;height:0;--Rx:130px;--Ry:150px}
+ .fan::before,.fan::after{content:"";position:absolute;left:0;bottom:auto;top:calc(var(--Ry) * -1);width:var(--Rx);height:calc(var(--Ry) * 2);border:1px dashed rgba(255,255,255,.25);border-left:0;border-radius:0 var(--Rx) var(--Rx) 0 / 0 var(--Ry) var(--Ry) 0;transform-origin:0 50%;animation:ringV 1.2s var(--ease) both .2s}
+ .fan::after{width:calc(var(--Rx) * .6);top:calc(var(--Ry) * -.6);height:calc(var(--Ry) * 1.2);border-radius:0 calc(var(--Rx) * .6) calc(var(--Rx) * .6) 0 / 0 calc(var(--Ry) * .6) calc(var(--Ry) * .6) 0;border-color:rgba(255,255,255,.14);animation-delay:.45s}
+ @keyframes ringV{from{transform:scale(.05);opacity:0}to{transform:none;opacity:1}}
+ .fan a{left:0;top:0;width:60px;height:26px;margin:-13px 0 0 -30px;font-size:9px;border-radius:9px;
+  transform:translate(var(--x),var(--y));
+  animation:flyV 1.3s cubic-bezier(.2,.9,.25,1.1) both;animation-delay:calc(.45s + var(--i) * 70ms)}
+ @keyframes flyV{from{--x:0px;--y:0px;opacity:0;transform:translate(0,0) scale(.3)}30%{opacity:1}}
+ .fan a:active{transform:translate(var(--x),var(--y)) scale(1.18)}
+}
