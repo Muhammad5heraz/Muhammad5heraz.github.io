@@ -166,7 +166,7 @@
 })();
 ;(function(){
   var d=document,mq=matchMedia('(max-width:860px)');
-  var SEL=['#certificates .body','#vault .vg'],STK=['#research .body','#publications .body','#education .body','#experience .body','#skills .body','#skills .row4','#awards .body','#beyond .body','#references .body'];
+  var SEL=['#research .body','#publications .body','#education .body','#experience .body','#skills .body','#skills .row4','#awards .body','#certificates .body','#beyond .body','#vault .vg','#references .body'],STK=[];
   function dots(t){var n=t.children.length,vis=[];[].forEach.call(t.children,function(c){if(c.hidden)return;if(/(^| )(roles|awl)( |$)/.test(c.className))[].forEach.call(c.children,function(x){vis.push(x)});else vis.push(c)});
     var w=d.createElement('div');w.className='sdots';
     if(t.matches('#vault .vg')){t.after(w);return}
