@@ -48,3 +48,19 @@
     new IntersectionObserver(function(e){vis=e[0].isIntersecting}).observe(h);
     (function loop(t){if(vis){x.clearRect(0,0,W,H);M.forEach(function(m){m.y-=m.s*16;m.x+=Math.sin(t/3000+m.p)*.00006;if(m.y<-.02){m.y=1.02;m.x=Math.random()}var a=(.25+.35*Math.sin(t/900+m.p))*Math.min(1,m.x*1.6);x.fillStyle='rgba(243,201,139,'+Math.max(0,a)+')';x.beginPath();x.arc(m.x*W,m.y*H,m.r*dpr,0,6.28);x.fill()})}requestAnimationFrame(loop)})(0)}
 })();
+;(function(){
+  var d=document,mq=matchMedia('(min-width:861px) and (min-height:560px)');
+  function fit(){
+    var els=d.querySelectorAll('section.ch .fit');
+    for(var i=0;i<els.length;i++){var f=els[i];f.style.zoom='';
+      if(!mq.matches)continue;
+      var avail=innerHeight-Math.max(40,innerHeight*0.08),h=f.getBoundingClientRect().height;
+      f.dataset.nat=Math.round(h);
+      if(h>avail)f.style.zoom=(avail/h).toFixed(3);}
+  }
+  window.__fit=fit;
+  addEventListener('resize',fit);addEventListener('load',fit);
+  if(d.fonts&&d.fonts.ready)d.fonts.ready.then(fit);
+  fit();
+  d.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('.fl button'))setTimeout(fit,0)});
+})();
