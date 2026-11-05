@@ -497,3 +497,27 @@ h2 i{background:none!important;-webkit-text-fill-color:currentColor;color:var(--
  .swipe>.roles>.ro .d{margin-bottom:10px}
 }
 @media (max-width:860px) and (max-height:700px){.pipe.swipe .s{padding:8px}.pipe.swipe .s>*{margin-bottom:4px}}
+
+/* ===== Mobile fan v2: arch below the bio ===== */
+@property --aa{syntax:'<angle>';inherits:false;initial-value:-90deg}
+@property --rr{syntax:'<length>';inherits:false;initial-value:0px}
+@media (max-width:860px){
+ .bio{width:58vw}.bio .lede{font-size:24px}.bio .rest{font-size:14px}
+ .fan{inset:auto;left:50%;bottom:122px;width:0;height:0;--R:min(38vw,150px,24svh);--R2:calc(var(--R) * .62)}
+ .fan::before,.fan::after{content:"";position:absolute;bottom:0;transform-origin:50% 100%;border:1px dashed rgba(255,255,255,.24);border-bottom:0;animation:ringIn 1.2s var(--ease) both}
+ .fan::before{left:calc(var(--R) * -1);width:calc(var(--R) * 2);height:var(--R);border-radius:var(--R) var(--R) 0 0;animation-delay:.25s}
+ .fan::after{left:calc(var(--R2) * -1);width:calc(var(--R2) * 2);height:var(--R2);border-radius:var(--R2) var(--R2) 0 0;border-color:rgba(255,255,255,.15);animation-delay:.5s}
+ @keyframes ringIn{from{transform:scale(.1) rotate(-60deg);opacity:0}to{transform:none;opacity:1}}
+ .fan a{left:0;top:0;width:66px;height:28px;margin:-14px 0 0 -33px;font-size:9.5px;border-radius:10px;
+  --aa:var(--a);--rr:calc(var(--R) * (1 - var(--o) * .38));
+  transform:rotate(var(--aa)) translateY(calc(var(--rr) * -1)) rotate(calc(var(--aa) * -1));
+  animation:unfurl 1.5s cubic-bezier(.2,.9,.25,1.12) both;animation-delay:calc(.5s + var(--i) * 75ms)}
+ @keyframes unfurl{from{--aa:-95deg;--rr:0px;opacity:0}25%{opacity:1}}
+ .fan a::after{background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.55) 48%,transparent 60%);background-size:260% 100%;background-position:150% 0;animation:sheen 4.5s linear infinite;animation-delay:calc(2.4s + var(--i) * .4s)}
+ @keyframes sheen{0%{background-position:150% 0}40%,100%{background-position:-60% 0}}
+ .fan a:active{transform:rotate(var(--aa)) translateY(calc(var(--rr) * -1)) rotate(calc(var(--aa) * -1)) scale(1.18)}
+}
+@media (max-width:860px){.fan{--R:min(40vw,160px);--R2:calc(var(--R) * .56)}.fan a{--rr:calc(var(--R) * (1 - var(--o) * .44))}}
+@media (max-width:860px) and (max-height:700px){.fan{--R:min(36vw,104px);bottom:104px}.bio .rest{display:none}.bio{width:62vw}}
+@media (max-width:860px){.fan{--R:min(41vw,166px);--R2:calc(var(--R) * .7)}.fan a{width:60px;margin:-14px 0 0 -30px;font-size:9px;gap:4px;--rr:calc(var(--R) * (1 - var(--o) * .3))}}
+@media (max-width:860px) and (max-height:700px){.fan{--R:min(40vw,150px);bottom:100px}}
