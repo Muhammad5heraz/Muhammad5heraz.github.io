@@ -178,7 +178,7 @@
   function reset(t){t.classList.remove('swipe','stkn','two','meas','dn');var n=t.nextElementSibling;if(n&&n.classList.contains('sdots'))n.remove()}
   function kids(t){var c=0;[].forEach.call(t.children,function(x){if(/(^| )(roles|awl)( |$)/.test(x.className))c+=x.children.length;else if(!x.hidden)c++});return c}
   function ok(ts){return ts.every(function(t){return t.scrollHeight<=t.clientHeight+2})}
-  var GROUPS={'#publications .body':[[0,1],[2,3]],'#education .body':[[0],[1,2,3]],'#experience .body':[[0,1],[2,3,4]],'#skills .row4':[[0,1,2],[3,4,5],[6,7,8],[9]],'#awards .body':[[0,1],[2,3,4],[5,6]],'#beyond .body':[[0,1],[2,3],[4]],'#references .body':[[0,1],[2,3],[4]]};
+  var GROUPS={'#publications .body':[[0,1],[2,3]],'#education .body':[[0],[1,2,3]],'#experience .body':[[0,1],[2,3,4]],'#skills .row4':[[0,1,2],[3,4,5],[6,7,8],[9]],'#awards .body':[[0,1],[2,3,4],[5,6]],'#beyond .body':[[0,1],[2,3],[4,5]],'#references .body':[[0,1],[2,3],[4]]};
   function group(t,spec){
     if(t.dataset.grp)return;
     var items=[];[].forEach.call(t.children,function(c){if(/(^| )(roles|awl)( |$)/.test(c.className)){[].forEach.call(c.children,function(x){x.classList.add('mv');items.push(x)})}else if(c.classList.contains('rnote')){}else items.push(c)});
