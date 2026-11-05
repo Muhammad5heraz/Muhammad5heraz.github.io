@@ -207,20 +207,24 @@ footer{margin-left:250px;padding:22px 72px;border-top:1px solid #ffffff0d;color:
 .flow i{font:500 10px 'JetBrains Mono',monospace;color:var(--ac);font-style:normal}
 /* awards */
 #awards{--ac:#FF8A5B}
-.aw{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:repeat(4,auto);gap:14px}
-.aw0{grid-row:span 4;padding:30px 34px;background:linear-gradient(160deg,#2A1710,#0E1217 60%);display:flex;flex-direction:column;justify-content:flex-end}
+.aw{display:grid;grid-template-columns:1fr 1.25fr;gap:14px}.awl{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start}
+.aw0{padding:30px 34px;background:linear-gradient(160deg,#2A1710,#0E1217 60%);display:flex;flex-direction:column;justify-content:flex-end}
 .aw0 .ic{font-size:64px;color:var(--ac);line-height:1;margin:14px 0 10px;text-shadow:0 0 30px color-mix(in srgb,var(--ac) 60%,transparent)}
 .aw0 h3{font:400 clamp(38px,3.6vw,54px)/1.02 'Instrument Serif',serif}.aw0 p{margin-top:12px;color:#B9BCC3;font-size:15px;max-width:380px}
 .vl{margin-top:20px;align-self:flex-start;color:var(--ac);border:1px solid color-mix(in srgb,var(--ac) 50%,transparent);border-radius:999px;padding:8px 16px;font-size:13px}
-.aw1{padding:16px 22px;display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:center}
-.aw1 .n{font:400 34px/1 'Instrument Serif',serif;color:var(--ac);margin:0}.aw1 h3{font:400 21px/1.15 'Instrument Serif',serif;margin:3px 0}.aw1 p{font-size:13px;color:#9EA3AB}
+.aw1{padding:14px 16px;display:grid;grid-template-columns:38px 1fr;gap:10px;align-items:start}
+.aw1 .n{font:400 28px/1 'Instrument Serif',serif;color:var(--ac);margin:0}.aw1 h3{font:400 19px/1.15 'Instrument Serif',serif;margin:3px 0}.aw1 p{font-size:13px;color:#9EA3AB}
 /* certificates */
 #certificates{--ac:#4FD0E0}
-.cg{display:grid;grid-template-columns:1.1fr 1fr;gap:24px}
-.cgc{border:1px solid #ffffff12;border-radius:20px;background:#0E1217;padding:22px 26px}
-.cr{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-top:1px solid #ffffff12}.cgc .small+.cr{border-top:0;margin-top:6px}
-.cr .d{font:500 11px 'JetBrains Mono',monospace;color:var(--ac);letter-spacing:.06em;padding-top:5px}.cr h3{font:400 23px/1.15 'Instrument Serif',serif}.cr p{font-size:13px;color:#9EA3AB;margin-top:3px}
-.cgc:nth-child(2) .cr{grid-template-columns:56px 1fr}
-@media (max-width:1100px){.two.three{grid-template-columns:1fr}.aw,.cg{grid-template-columns:1fr}.aw0{grid-row:auto}}
-@media (max-width:860px){.cr{grid-template-columns:1fr;gap:4px}.cgc:nth-child(2) .cr{grid-template-columns:1fr}.aw1{grid-template-columns:40px 1fr}.three .rc h3,.three .rc p{max-width:100%}.three .big{position:static}}
+.cg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.cgc{border:1px solid #ffffff12;border-radius:20px;background:#0E1217;padding:18px 20px}
+.cr{display:grid;grid-template-columns:104px 1fr;gap:12px;padding:11px 0;border-top:1px solid #ffffff12}.cgc .small+.cr{border-top:0;margin-top:6px}
+.cr .d{font:500 10px 'JetBrains Mono',monospace;color:var(--ac);letter-spacing:.06em;padding-top:5px}.cr h3{font:400 19px/1.15 'Instrument Serif',serif}.cr p{font-size:13px;color:#9EA3AB;margin-top:3px}
+
+@media (max-width:1100px){.two.three{grid-template-columns:1fr}.aw,.cg{grid-template-columns:1fr}.awl{grid-template-columns:1fr 1fr}}
+@media (max-width:860px){.cr{grid-template-columns:1fr;gap:4px}.awl{grid-template-columns:1fr}.aw1{grid-template-columns:40px 1fr}.three .rc h3,.three .rc p{max-width:100%}.three .big{position:static}}
 @media (min-width:861px) and (min-height:560px) and (max-height:800px){.rail ol li a{padding-top:8px;padding-bottom:8px}.cr{padding:9px 0}.cr h3{font-size:20px}.aw0{padding:22px 28px}}
+.c2.rv:nth-child(5){grid-column:1/-1}
+.e.b{grid-row:span 3}
+@media (min-width:1101px){.eg .e:not(.b){padding:18px 26px}.eg .e:not(.b) h3{font-size:26px;margin:6px 0 2px}.eg .e:not(.b) .n{font-size:40px;margin-top:6px}.g{font-size:clamp(80px,8vw,120px)}.cg{align-items:stretch}}
+@media (min-width:861px) and (min-height:560px) and (max-height:800px){.three .ideo{height:64px;margin:1vh 0}.three .facts div{padding:5px 0}.three .rc h3{font-size:24px}.lead{max-width:760px}.two.three .rc p{font-size:12px}.now2{display:none}}
