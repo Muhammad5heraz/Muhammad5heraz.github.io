@@ -420,3 +420,20 @@ h2 i{background:linear-gradient(100deg,var(--ac) 38%,#fff 50%,var(--ac) 62%) 160
 #kp-l li.none{cursor:default;color:var(--dim)}
 .kp-h{display:flex;gap:16px;padding:10px 18px;border-top:1px solid #FFFFFF14;font:500 10.5px 'JetBrains Mono',monospace;color:var(--dim)}
 @media (hover:none),(max-width:860px){#kp-b{display:none}}
+
+/* performance pass: no per-pane blur, no continuous repaints */
+.card,.vc,.s .t,.r.f,.pfacts div,.top,#kp-b,.r::before,.ro::before,.cr::before,.s::before{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.card,.vc,.s .t,.r.f,.pfacts div{background:
+  radial-gradient(240px circle at var(--mx,85%) var(--my,0%),#FFF1D01c,transparent 65%),
+  linear-gradient(215deg,#2a313b 0,#171c23 45%,#12171d 100%)}
+.r::before,.ro::before,.cr::before,.s::before{background:linear-gradient(215deg,#222932,#161b21 60%,#12171c)!important}
+.r:hover::before,.ro:hover::before,.cr:hover::before,.s:hover::before{background:linear-gradient(90deg,color-mix(in srgb,var(--ac) 26%,#161b21),color-mix(in srgb,var(--ac) 8%,#14191f) 70%,#12171c)!important}
+.top{background:#0B0F14f2!important}
+#sun .rays{animation:none!important}
+#sun .core{animation:none!important}
+#glow{mix-blend-mode:normal;opacity:0;background:radial-gradient(circle,color-mix(in srgb,var(--ac) 11%,transparent),transparent 62%)}
+#glow.on{opacity:1}
+h2 i{animation:none!important;background-position:50% 0}
+.s .dot,.dotp{animation:none!important}
+.card[data-d],.vc,.s .t,.r.f{will-change:auto}
+h2 i{background:none!important;-webkit-text-fill-color:currentColor;color:var(--ac)}
