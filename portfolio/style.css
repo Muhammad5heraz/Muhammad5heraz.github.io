@@ -555,3 +555,41 @@ h2 i{background:none!important;-webkit-text-fill-color:currentColor;color:var(--
  .swipe>.cgc>.cr{flex:1 1 0;max-height:92px;display:flex!important;flex-direction:column;justify-content:center}
  #vault .vg.swipe>*{align-self:stretch}
 }
+@media (max-width:860px){
+ .stkn{display:flex!important;flex-direction:column;gap:10px;padding:0 18px;margin:12px 0 !important;flex:0 1 auto;min-height:0;overflow:hidden;margin-top:auto!important;margin-bottom:auto!important}
+ .stkn>*{flex:0 0 auto;width:auto!important;margin:0!important;grid-column:auto!important;grid-row:auto!important;max-height:none}
+ .stkn.two{display:grid!important;grid-template-columns:1fr 1fr;align-content:start}
+ .stkn>.roles{display:flex!important;flex-direction:column;gap:10px}
+ .stkn.two>.roles,.stkn.two>.awl{display:contents}
+ .stkn>.awl{display:grid!important;grid-template-columns:1fr 1fr;gap:10px}
+ #skills .stkn+.stkn,#skills .stkn{margin-top:10px!important}
+}
+@media (max-width:860px){
+ .dn{gap:8px!important}
+ .dn>*,.dn>.roles>*,.dn>.awl>*{padding:11px 13px!important}
+ .dn h3,.dn h4{font-size:16px!important;line-height:1.15!important}
+ .dn p{font-size:11.5px!important;line-height:1.35!important;margin-top:3px!important}
+ .dn .small,.dn .d,.dn .v,.dn .m{font-size:9px!important;margin-bottom:2px!important}
+ .dn .y{font-size:18px!important}.dn .n{font-size:24px!important}
+ .dn .tgz,.dn .rtag{margin-top:5px!important}.dn .lk a,.dn .lk button{font-size:11px}
+ .dn .chip,.dn .tag{font-size:10px!important;padding:3px 9px!important}
+ .dn .ic{display:none}.dn .big b{font-size:34px!important}
+}
+@media (max-width:860px){
+ .stkn.two{grid-template-columns:repeat(2,minmax(0,1fr))}.stkn>*{min-width:0}
+ .stkn.two>.aw0,.stkn.two>.map{grid-column:1 / -1!important}
+}
+@media (max-width:860px){
+ section.ch:not(#profile){padding-top:58px}
+ .fit>h2{font-size:clamp(28px,8.8vw,36px)!important}
+ .fit>.kick{margin-top:2px}
+ .stkn{margin-top:6px!important;margin-bottom:6px!important}
+ .dn{gap:6px!important}
+ .dn>*,.dn>.roles>*,.dn>.awl>*{padding:9px 12px!important}
+ .dn h3,.dn h4{font-size:15px!important}
+ .dn p{font-size:11px!important;line-height:1.3!important}
+ .dn .chip,.dn .tag{font-size:9.5px!important;padding:2px 8px!important}
+ .dn>.rnote,.stkn+.rnote{font-size:10px}
+ .dn.two>.aw0 p{font-size:11.5px!important}.dn .aw0 h3{font-size:20px!important}
+}
+@media (max-width:860px){.stkn{margin-top:12px!important}.dn p{padding-right:22px}}
