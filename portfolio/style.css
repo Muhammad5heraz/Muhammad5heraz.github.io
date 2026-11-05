@@ -293,3 +293,14 @@ html.pop-open{overflow:hidden}
 @media (max-width:860px){.pop-in.two{display:block}.pop-in.two .col+.col{margin-top:22px}}
 .pop-in.two .pfacts{gap:8px;margin-top:16px}.pop-in.two .pfacts div{padding:8px 12px}.pop-in.two .pflow li{padding:5px 0}.pop-in.two .prole{margin-top:16px;padding:12px 16px}.pop-in.two .pdocs{margin-top:16px;padding-top:14px}
 @media (min-width:861px) and (min-height:560px) and (max-height:800px){.cr{padding:6px 0 6px}.cr h3{font-size:17px}.cr p{font-size:12px;margin-top:1px}.cgc{padding:12px 18px}.cr .d{padding-top:3px}.cr[data-d]:after{width:20px;height:20px;line-height:18px;margin-top:-10px}h2{font-size:clamp(38px,4vw,54px)}}
+/* shaded hover on every tab: accent border + soft left-to-right glow in the chapter colour */
+.card,.r,.ro,.cr,.s,.vc{position:relative;isolation:isolate}
+.card::before,.r::before,.ro::before,.cr::before,.s::before,.vc::before{content:'';position:absolute;z-index:-1;inset:0;border-radius:inherit;border:1px solid color-mix(in srgb,var(--ac) 42%,transparent);background:linear-gradient(90deg,color-mix(in srgb,var(--ac) 16%,transparent),color-mix(in srgb,var(--ac) 4%,transparent) 68%,transparent);opacity:0;transition:opacity .35s ease;pointer-events:none}
+.r::before,.ro::before,.cr::before,.s::before{inset:-9px -14px;border-radius:16px}
+.r.f::before{inset:0;border-radius:18px}
+.card:hover::before,.r:hover::before,.ro:hover::before,.cr:hover::before,.s:hover::before,.vc:hover::before,.card:focus-visible::before,.r:focus-visible::before,.ro:focus-visible::before,.cr:focus-visible::before,.s:focus-visible::before,.vc:focus-visible::before,.card:active::before,.r:active::before,.ro:active::before,.cr:active::before,.s:active::before,.vc:active::before{opacity:1}
+.ro:hover h3,.cr:hover h3,.s:hover h4{color:var(--ac)}
+.vc{overflow:hidden}.vc .th{margin:-10px -12px 0;border-radius:0;height:92px;background:#161B22 center top/cover no-repeat}.vc .th:after{display:none}
+.db{overflow:auto}.db img{height:auto;object-fit:initial;display:block;background:#fff}
+@media (min-width:861px) and (min-height:560px) and (max-height:800px){.vc .th{height:64px}}
+@media (prefers-reduced-motion:reduce){.card::before,.r::before,.ro::before,.cr::before,.s::before,.vc::before{transition:none}}

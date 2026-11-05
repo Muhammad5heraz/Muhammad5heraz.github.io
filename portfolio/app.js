@@ -80,7 +80,7 @@
     var pts=x.pts?P('<ul class="plist">'+x.pts.map(function(t){return '<li>'+E(t)+'</li>'}).join('')+'</ul>'):'';
     var chips=x.chips?P('<div class="pchips">'+x.chips.map(function(t){return '<span>'+E(t)+'</span>'}).join('')+'</div>'):'';
     var facts=x.facts?P('<div class="pfacts">'+x.facts.map(function(f){return '<div><small>'+E(f[0])+'</small><span>'+E(f[1])+'</span></div>'}).join('')+'</div>'):'';
-    var docs=(x.links||x.docs)?P('<div class="pdocs"><small>Documents</small>'+(x.links||[]).map(function(l){return '<a class="pdoc go" href="'+E(l[1])+'" target="_blank" rel="noopener">'+E(l[0])+'</a>'}).join('')+(x.docs||[]).map(function(o){return '<button class="pdoc" data-t="'+E(o[0])+'" data-m="'+E(o[1])+'" data-s="'+(o[2]||'p')+'">View document <em>'+E(o[0])+'</em></button>'}).join('')+'</div>'):'';
+    var docs=(x.links||x.docs)?P('<div class="pdocs"><small>Documents</small>'+(x.links||[]).map(function(l){return '<a class="pdoc go" href="'+E(l[1])+'" target="_blank" rel="noopener">'+E(l[0])+'</a>'}).join('')+(x.docs||[]).map(function(o){var f=/^docs\//.test(o[2]||'')?o[2]:'';return '<button class="pdoc" data-t="'+E(o[0])+'" data-m="'+E(o[1])+'" data-f="'+E(f)+'" data-s="'+(f?'v':(o[2]||'p'))+'">View document <em>'+E(o[0])+'</em></button>'}).join('')+'</div>'):'';
     if(two){L.push(facts,docs);R.push(flow,pts);inn.className='pop-in two';inn.innerHTML='<div class="col">'+L.join('')+'</div><div class="col">'+R.join('')+'</div>'}
     else{L.push(flow,pts,chips,facts,docs);inn.className='pop-in';inn.innerHTML=L.join('')}
     card.classList.toggle('wide',two);return true}
@@ -100,7 +100,7 @@
     var t=e.target.closest&&e.target.closest('[data-d]');
     if(t&&!pop.contains(e.target)){var inner=e.target.closest('a,button');if(inner&&t.contains(inner)&&inner!==t)return;show(t);return}
     if(open&&(e.target.classList.contains('pop-bg')||e.target.closest('#pop-x')))hide();
-    var db=e.target.closest&&e.target.closest('.pdoc[data-t]');if(db&&window.__openDoc)window.__openDoc(db.dataset.t,db.dataset.m,'',db.dataset.s)});
+    var db=e.target.closest&&e.target.closest('.pdoc[data-t]');if(db&&window.__openDoc)window.__openDoc(db.dataset.t,db.dataset.m,db.dataset.f||'',db.dataset.s)});
   d.addEventListener('keydown',function(e){
     if(open&&e.key==='Escape'&&!d.getElementById('viewer').open){e.preventDefault();hide()}
     if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches('[data-d]')){e.preventDefault();show(e.target)}});
