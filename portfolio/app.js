@@ -178,9 +178,20 @@
   function reset(t){t.classList.remove('swipe','stkn','two','meas','dn');var n=t.nextElementSibling;if(n&&n.classList.contains('sdots'))n.remove()}
   function kids(t){var c=0;[].forEach.call(t.children,function(x){if(/(^| )(roles|awl)( |$)/.test(x.className))c+=x.children.length;else if(!x.hidden)c++});return c}
   function ok(ts){return ts.every(function(t){return t.scrollHeight<=t.clientHeight+2})}
+  var GROUPS={'#publications .body':[[0,1],[2,3]],'#education .body':[[0],[1,2,3]],'#experience .body':[[0,1],[2,3,4]],'#skills .row4':[[0,1,2],[3,4,5],[6,7,8],[9]],'#awards .body':[[0,1],[2,3,4],[5,6]],'#beyond .body':[[0,1],[2,3],[4]],'#references .body':[[0,1],[2,3],[4]]};
+  function group(t,spec){
+    if(t.dataset.grp)return;
+    var items=[];[].forEach.call(t.children,function(c){if(/(^| )(roles|awl)( |$)/.test(c.className)){[].forEach.call(c.children,function(x){x.classList.add('mv');items.push(x)})}else if(c.classList.contains('rnote')){}else items.push(c)});
+    var rn=t.querySelector(':scope>.rnote');
+    var frag=d.createDocumentFragment();
+    spec.forEach(function(g){var w=d.createElement('div');w.className='slide'+(g.length>1?' dn':'');g.forEach(function(i){if(items[i])w.appendChild(items[i])});frag.appendChild(w)});
+    [].slice.call(t.querySelectorAll(':scope>.roles,:scope>.awl')).forEach(function(e){e.remove()});
+    t.appendChild(frag);if(rn)t.after(rn);
+    t.dataset.grp=1;
+  }
   function setup(){
     if(!mq.matches){return}
-    ALWAYS.forEach(function(s){var t=d.querySelector(s);if(t){reset(t);t.classList.add('swipe');dots(t)}});
+    ALWAYS.forEach(function(s){var t=d.querySelector(s);if(t){if(GROUPS[s])group(t,GROUPS[s]);reset(t);t.classList.add('swipe');dots(t)}});
     SECS.forEach(function(sec){
       var ts=sec.map(function(s){return d.querySelector(s)}).filter(Boolean);if(!ts.length)return;
       ts.forEach(reset);
