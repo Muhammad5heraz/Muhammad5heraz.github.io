@@ -618,3 +618,8 @@ h2 i{background:none!important;-webkit-text-fill-color:currentColor;color:var(--
  #skills .row4.stk>.card{padding:6px 24px 6px 10px}#skills .row4 .small{font-size:9px}
  #experience .roles>.ro{max-height:100px!important}
 }
+@media (max-width:860px){
+ .swipe>.cgc{display:flex!important;flex-direction:column;overflow:hidden}
+ .swipe>.cgc>*:not(.cr){flex:none}
+ .swipe>.cgc>.cr{flex:1 1 0;max-height:92px;display:flex!important;flex-direction:column;justify-content:center}
+}
