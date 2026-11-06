@@ -1,5 +1,7 @@
 # Muhammad Sheraz — link hub
 
+[![Portfolio](https://img.shields.io/badge/Portfolio-muhammad5heraz.github.io%2Fportfolio-F3C98B?style=for-the-badge&labelColor=0C0F16)](https://muhammad5heraz.github.io/portfolio/)
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24000460.svg)](https://doi.org/10.5281/zenodo.24000460)
 
 Live at **https://muhammad5heraz.github.io**
