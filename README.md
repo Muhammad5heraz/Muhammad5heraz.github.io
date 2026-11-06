@@ -31,3 +31,8 @@ the licence; please do not reuse them.
 
 ## Author
 Muhammad Sheraz · [ORCID 0009-0007-3877-2232](https://orcid.org/0009-0007-3877-2232)
+
+## Portfolio (`/portfolio`)
+A static digital CV/portfolio. © 2026 Muhammad Sheraz, all rights reserved — see `LICENSE`.
+Viewing is welcome; copying, republishing or presenting any part of it as your own is not permitted.
+Ownership mark: `msheraz-portfolio-2026-ownership-mark`
