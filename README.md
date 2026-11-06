@@ -1,5 +1,7 @@
 # Muhammad Sheraz — link hub
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24000460.svg)](https://doi.org/10.5281/zenodo.24000460)
+
 Live at **https://muhammad5heraz.github.io**
 
 A single-page link hub: Instagram, YouTube, TikTok, WhatsApp, LinkedIn, GitHub,
@@ -36,3 +38,5 @@ Muhammad Sheraz · [ORCID 0009-0007-3877-2232](https://orcid.org/0009-0007-3877-
 A static digital CV/portfolio. © 2026 Muhammad Sheraz, all rights reserved — see `LICENSE`.
 Viewing is welcome; copying, republishing or presenting any part of it as your own is not permitted.
 Ownership mark: `msheraz-portfolio-2026-ownership-mark`
+
+Archived with a DOI: https://doi.org/10.5281/zenodo.24000460 · Web Archive snapshot: https://web.archive.org/web/20261106073220/https://muhammad5heraz.github.io/portfolio/
