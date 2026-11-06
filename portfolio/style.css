@@ -687,3 +687,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 #sun .wash{background:radial-gradient(ellipse 80% 60% at 100% 0,#F3C98B30,transparent 65%)}
 #sun .cool{background:radial-gradient(circle,#4F7BD048,transparent 66%)}
 #sun .mid{background:radial-gradient(circle,#B79CFF2e,transparent 66%)}
+
+/* build 39 · publication-row back face: two columns so nothing spills */
+@media (min-width:700px){
+ .r.fc .fb{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto auto;column-gap:22px;row-gap:3px;align-content:center;align-items:center;padding-right:64px!important;border-radius:16px!important}
+ .r.fc .fb .fbk{grid-column:1;grid-row:1;padding-right:0}
+ .r.fc .fb .fbd{display:contents}
+ .r.fc .fb .fbd .v{grid-column:1;grid-row:2}
+ .r.fc .fb .fbd .m{grid-column:1;grid-row:3}
+ .r.fc .fb .fbd .tgz{grid-column:2;grid-row:1/4;flex-direction:column;align-items:flex-end;gap:8px}
+ .r.fc .fb .fbh span{display:none}
+}
